@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 2019_03_25_171646) do
   create_table "recipes", force: :cascade do |t|
     t.bigint "user_id"
     t.text "title"
+    t.text "ingredient_blob"
     t.text "ingredients", array: true
     t.text "directions"
+    t.text "cooking_time"
     t.text "image_url"
     t.text "source_url"
     t.datetime "created_at", null: false
