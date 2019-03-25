@@ -1,0 +1,1050 @@
+  [1m[35m (323.6ms)[0m  [1m[35mCREATE DATABASE "cookbook_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (289.6ms)[0m  [1m[35mCREATE DATABASE "cookbook_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(487988736087080235)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRecipes (20190325171614)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "user_id" bigint, "title" text, "ingredients" text[], "directions" text, "image_url" text, "source_url" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171614_create_recipes.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_recipes_on_user_id" ON "recipes"  ("user_id")[0m
+  ↳ db/migrate/20190325171614_create_recipes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171614"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20190325171619)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "recipe_id" bigint, "content" text, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171619_create_comments.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_recipe_id" ON "comments"  ("recipe_id")[0m
+  ↳ db/migrate/20190325171619_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171619"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190325171624)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171624_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171624"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTags (20190325171632)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171632_create_tags.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171632"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateRecipeTags (20190325171646)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "recipe_tags" ("id" bigserial primary key, "recipe_id" bigint, "tag_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_recipe_tags_on_recipe_id" ON "recipe_tags"  ("recipe_id")[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_recipe_tags_on_tag_id" ON "recipe_tags"  ("tag_id")[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171646"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-03-25 17:40:27.286431"], ["updated_at", "2019-03-25 17:40:27.286431"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(487988736087080235)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (165.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cookbook_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (147.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cookbook_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (412.6ms)[0m  [1m[35mCREATE DATABASE "cookbook_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (280.5ms)[0m  [1m[35mCREATE DATABASE "cookbook_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(487988736087080235)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRecipes (20190325171614)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "user_id" bigint, "title" text, "ingredient_blob" text, "ingredients" text[], "directions" text, "cooking_time" text, "image_url" text, "source_url" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171614_create_recipes.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_recipes_on_user_id" ON "recipes"  ("user_id")[0m
+  ↳ db/migrate/20190325171614_create_recipes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171614"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20190325171619)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "recipe_id" bigint, "content" text, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171619_create_comments.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_recipe_id" ON "comments"  ("recipe_id")[0m
+  ↳ db/migrate/20190325171619_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171619"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190325171624)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171624_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171624"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTags (20190325171632)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171632_create_tags.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171632"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateRecipeTags (20190325171646)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "recipe_tags" ("id" bigserial primary key, "recipe_id" bigint, "tag_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_recipe_tags_on_recipe_id" ON "recipe_tags"  ("recipe_id")[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_recipe_tags_on_tag_id" ON "recipe_tags"  ("tag_id")[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171646"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-03-25 21:47:58.929786"], ["updated_at", "2019-03-25 21:47:58.929786"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(487988736087080235)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mRecipe Load (1.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:66
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:66
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:66
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:66
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:67
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:67
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:10
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:68
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:68
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (5026.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cookbook_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (5073.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cookbook_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (160.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cookbook_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (151.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cookbook_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (407.6ms)[0m  [1m[35mCREATE DATABASE "cookbook_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (293.6ms)[0m  [1m[35mCREATE DATABASE "cookbook_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(487988736087080235)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRecipes (20190325171614)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "user_id" bigint, "title" text, "ingredient_blob" text, "ingredients" text[], "directions" text, "cooking_time" text, "image_url" text, "source_url" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171614_create_recipes.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_recipes_on_user_id" ON "recipes"  ("user_id")[0m
+  ↳ db/migrate/20190325171614_create_recipes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171614"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20190325171619)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "recipe_id" bigint, "content" text, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171619_create_comments.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_recipe_id" ON "comments"  ("recipe_id")[0m
+  ↳ db/migrate/20190325171619_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171619"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190325171624)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171624_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171624"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTags (20190325171632)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171632_create_tags.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171632"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateRecipeTags (20190325171646)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "recipe_tags" ("id" bigserial primary key, "recipe_id" bigint, "tag_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_recipe_tags_on_recipe_id" ON "recipe_tags"  ("recipe_id")[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_recipe_tags_on_tag_id" ON "recipe_tags"  ("tag_id")[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171646"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-03-25 22:20:20.507644"], ["updated_at", "2019-03-25 22:20:20.507644"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(487988736087080235)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:68
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:68
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:67
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:67
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Create (1.1ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Scampi"], ["created_at", "2019-03-25 22:26:45.537743"], ["updated_at", "2019-03-25 22:26:45.537743"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (5037.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cookbook_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (5038.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cookbook_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (240.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cookbook_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (132.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cookbook_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (399.4ms)[0m  [1m[35mCREATE DATABASE "cookbook_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (283.6ms)[0m  [1m[35mCREATE DATABASE "cookbook_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(487988736087080235)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRecipes (20190325171614)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" bigserial primary key, "user_id" bigint, "title" text, "ingredient_blob" text, "ingredients" text[], "directions" text, "cooking_time" text, "image_url" text, "source_url" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171614_create_recipes.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_recipes_on_user_id" ON "recipes"  ("user_id")[0m
+  ↳ db/migrate/20190325171614_create_recipes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171614"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20190325171619)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "recipe_id" bigint, "content" text, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171619_create_comments.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_recipe_id" ON "comments"  ("recipe_id")[0m
+  ↳ db/migrate/20190325171619_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171619"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190325171624)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171624_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171624"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTags (20190325171632)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171632_create_tags.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171632"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateRecipeTags (20190325171646)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "recipe_tags" ("id" bigserial primary key, "recipe_id" bigint, "tag_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_recipe_tags_on_recipe_id" ON "recipe_tags"  ("recipe_id")[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_recipe_tags_on_tag_id" ON "recipe_tags"  ("tag_id")[0m
+  ↳ db/migrate/20190325171646_create_recipe_tags.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190325171646"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-03-25 22:51:32.144587"], ["updated_at", "2019-03-25 22:51:32.144587"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(487988736087080235)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mRecipe Create (1.2ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "ingredient_blob", "directions", "cooking_time", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "Roasted Shrimp & Asparagus Scampi"], ["ingredient_blob", "1 1/2 pounds shrimp\n    1 pound asparagus, tough ends discarded, cut into 1-inch pieces\n    3 tablespoons extra-virgin olive oil\n    4 garlic cloves, minced\n    1/2 teaspoon red pepper flakes (optional)\n    1 teaspoon kosher salt\n    1/4 cup dry white wine or rosé (or water)\n    2 tablespoons unsalted butter, melted\n    The juice and zest of 1 lemon, plus extra lemon wedges for serving\n    1 large handful Italian parsley leaves, finely chopped\n    1 pound spaghetti, cooked until al dente"], ["directions", "\n    Preheat your broiler to high and position your oven rack so that it’s about 6 inches from the broiler.\n    Place the shrimp and asparagus on a sheet pan and drizzle with the olive oil. Sprinkle with the minced garlic, red pepper flakes (if using), and salt and use your hands to mix everything together. Spread the shrimp and asparagus in an even layer and pour the wine over them.\n    Broil the mixture, stirring once while it cooks, until the shrimp are pink and firm to the touch and the asparagus is tender, about 5 minutes all together.\n    Drizzle the butter and the lemon juice over the shrimp and asparagus, and sprinkle with the lemon zest and parsley. Use two spoons to toss everything together.\n    Transfer the scampi and all of the sauce to a large serving bowl along with the spaghetti. Stir well to coat the spaghetti with the sauce. Serve immediately while warm along with lemon wedges for squeezing over."], ["cooking_time", "25 minutes"], ["image_url", "https://images.food52.com/LBwo6tim9hgCfWA0tVrUBr8Asdk=/753x502/e814502e-8a1c-4ef4-b635-55c28e323d1b--2019-0206_sponsored_sofia_shrimp-scampi_3x2_rocky-luten_021.jpg"], ["source_url", "https://food52.com/recipes/80478-roasted-shrimp-asparagus-scampi"], ["created_at", "2019-03-25 22:51:35.967378"], ["updated_at", "2019-03-25 22:51:35.967378"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mRecipe Create (1.0ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "ingredient_blob", "directions", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Creamy, Cheesy Artichoke & Chicken Pasta Bake"], ["ingredient_blob", " 1 pound penne rigate\n    4 thick slices ciabatta or focaccia, torn into 1/2-inch cubes\n    5 tablespoons unsalted butter, divided (plus more for greasing the baking dish)\n    1/2 pound grilled chicken breast, torn into large chunks\n    3 tablespoons flour\n    3 cups whole milk\n    2 cups cream\n    3 1/2 cups shredded, low-moisture mozzarella, divided\n    2 tablespoons cream cheese\n    1 1/2 teaspoons garlic powder\n    1 1/2 teaspoons onion powder\n    1 teaspoon red pepper flakes\n    Kosher salt and freshly ground black pepper, to taste\n    1 cup loosely packed fresh basil, torn and divided\n    2 (6 1/2-ounce) jars marinated and quarter-cut artichoke hearts, drained (for more tang, reserve some of the liquid)\n    2 cups loosely packed fresh baby spinach"], ["directions", "\n    Preheat the oven to 375°F.\n    Bring a pot of water to a boil and salt generously. Cook the pasta al dente, according to the package instructions. Drain the pasta and set aside, reserving 1 cup of the pasta water.\n    Melt 2 tablespoons butter in a saucepan or microwave (for the microwave, use 30-second intervals). In a bowl, toss the ciabatta or focaccia chunks with the melted butter and set aside.\n    In a large, heavy-bottomed pot, heat 3 tablespoons butter over medium heat. Once the butter is melted and bubbling, add the flour and whisk together to form a thick, smooth roux (if too thick, add more butter; if too thin, add more flour). Keep whisking over low heat until the roux takes on a light brown color and gives off a slightly nutty smell (you shouldn’t be able to smell the raw flour), about 2 to 5 minutes.\n    Then whisk in the milk and cream until it’s fully incorporated with the roux. Bring to a simmer over medium heat, whisking occasionally, until the mixture bubbles and thickens. Turn down the heat to low and whisk in 2 1/2 cups mozzarella and the cream cheese until fully melted and incorporated. Whisk in the garlic powder, onion powder, red pepper flakes, plus salt and pepper, to taste.\n    Stir in 2/3 cup basil, artichokes (for a tangier sauce, add some of the artichoke liquid), grilled chicken, and cooked pasta. If the sauce is too thick, add the reserved pasta water as needed to loosen it up. Add salt and pepper, to taste. Turn off the heat on the stovetop. Stir in the spinach.\n    Butter a large casserole dish (I used a 10 x 10-inch, but you could use a slightly larger one and be just fine) and add the pasta mixture to the dish. Top with the buttered bread chunks. Sprinkle 1 cup mozzarella and 1/3 cup basil over top. Bake the dish until the cheese is browned and bubbling, about 30 minutes.\n    Serve hot out of the oven and don’t forget to snap a pic of that cheese pull."], ["image_url", "https://images.food52.com/m4hNhS9RDJPlk-Dwz8ZlUqUKVaA=/753x502/5bfde799-47b3-4dbd-ab2c-d5152082695d--2019-0305_creamy-cheesy-artichoke-pasta-bake_3x2_rocky-luten_019.jpg"], ["source_url", "https://food52.com/recipes/80682-creamy-cheesy-artichoke-chicken-pasta-bake"], ["created_at", "2019-03-25 22:51:35.970712"], ["updated_at", "2019-03-25 22:51:35.970712"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:67
+  [1m[36mRecipe Create (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "ingredient_blob", "directions", "cooking_time", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "Epic Cobb Salad for One"], ["ingredient_blob", "3 to 4\tslices bacon, cut in half\n    1\tbone-in, skin-on chicken thigh\n    Kosher salt and freshly ground black pepper, to taste\n    1/2\thead radicchio, cut into quarters so you're left with triangles (or however the heck you want to do it)\n    1\ttablespoon malt vinegar\n    2\ttablespoons extra-virgin olive oil\n    1\tounce blue cheese, chunked, at room temperature\n    1\thandful cherry or Campari tomatoes, cut in half\n    1/2\tavocado, thinly sliced\n    1\tlarge organic egg, boiled for 7 to 8 minutes, peeled, then quartered\n    1\ttablespoon chives, finely chopped"], ["directions", "Preheat oven to 400°F. Starting from a cold, oven-safe pan over medium heat, cook the bacon, 8 to 10 minutes, or until crispy on both sides. Remove and set aside. Season the chicken thigh with salt and pepper on both sides, then sear, skin-side down, in the bacon fat, 2 to 3 minutes. Turn chicken over, transfer pan to the oven, and roast for 15 minutes, or until cooked through. Set aside to cool slightly, then carve into bite-size pieces. Lay the radicchio in one even layer on the largest plate you’ve got. Sprinkle over the malt vinegar, olive oil, and salt and pepper. (Sometimes I do a pinch of sugar to offset the bitterness.) Assemble the salad: In six color-blocked compartments over the radicchio, arrange the bacon, chicken, blue cheese, tomatoes, avocado, and egg so the plate is bulging with FOOD. Season the tomatoes, avocado, and egg with salt and pepper, then garnish the entire plate with chives."], ["cooking_time", "40 minutes"], ["image_url", "https://images.food52.com/03GkFdTlRWsXwh3uOi31Uwfzclg=/filters:format(webp)/f573df36-ce12-4b3b-b4e9-5831d0541bd9--2019-0301_cobb-salad-for-one_3x2_ty-mecham_001.jpeg"], ["source_url", "https://food52.com/recipes/80707-epic-cobb-salad-for-one"], ["created_at", "2019-03-25 22:51:35.973478"], ["updated_at", "2019-03-25 22:51:35.973478"]]
+  ↳ db/seeds.rb:67
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:67
+  [1m[36mRecipe Load (1.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Destroy (0.6ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Destroy (1.0ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "User1"], ["created_at", "2019-03-25 22:59:16.502527"], ["updated_at", "2019-03-25 22:59:16.502527"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "ingredient_blob", "directions", "cooking_time", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["title", "Roasted Shrimp & Asparagus Scampi"], ["ingredient_blob", "1 1/2 pounds shrimp\n    1 pound asparagus, tough ends discarded, cut into 1-inch pieces\n    3 tablespoons extra-virgin olive oil\n    4 garlic cloves, minced\n    1/2 teaspoon red pepper flakes (optional)\n    1 teaspoon kosher salt\n    1/4 cup dry white wine or rosé (or water)\n    2 tablespoons unsalted butter, melted\n    The juice and zest of 1 lemon, plus extra lemon wedges for serving\n    1 large handful Italian parsley leaves, finely chopped\n    1 pound spaghetti, cooked until al dente"], ["directions", "\n    Preheat your broiler to high and position your oven rack so that it’s about 6 inches from the broiler.\n    Place the shrimp and asparagus on a sheet pan and drizzle with the olive oil. Sprinkle with the minced garlic, red pepper flakes (if using), and salt and use your hands to mix everything together. Spread the shrimp and asparagus in an even layer and pour the wine over them.\n    Broil the mixture, stirring once while it cooks, until the shrimp are pink and firm to the touch and the asparagus is tender, about 5 minutes all together.\n    Drizzle the butter and the lemon juice over the shrimp and asparagus, and sprinkle with the lemon zest and parsley. Use two spoons to toss everything together.\n    Transfer the scampi and all of the sauce to a large serving bowl along with the spaghetti. Stir well to coat the spaghetti with the sauce. Serve immediately while warm along with lemon wedges for squeezing over."], ["cooking_time", "25 minutes"], ["image_url", "https://images.food52.com/LBwo6tim9hgCfWA0tVrUBr8Asdk=/753x502/e814502e-8a1c-4ef4-b635-55c28e323d1b--2019-0206_sponsored_sofia_shrimp-scampi_3x2_rocky-luten_021.jpg"], ["source_url", "https://food52.com/recipes/80478-roasted-shrimp-asparagus-scampi"], ["created_at", "2019-03-25 22:59:16.526237"], ["updated_at", "2019-03-25 22:59:16.526237"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mComment Create (1.6ms)[0m  [1m[32mINSERT INTO "comments" ("recipe_id", "content", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe_id", 4], ["content", "So easy to make. But takes a long time."], ["rating", 3], ["created_at", "2019-03-25 22:59:16.539195"], ["updated_at", "2019-03-25 22:59:16.539195"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("recipe_id", "content", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe_id", 4], ["content", "I actually hate this."], ["rating", 0], ["created_at", "2019-03-25 22:59:16.543215"], ["updated_at", "2019-03-25 22:59:16.543215"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mRecipe Create (0.6ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "ingredient_blob", "directions", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 1], ["title", "Creamy, Cheesy Artichoke & Chicken Pasta Bake"], ["ingredient_blob", " 1 pound penne rigate\n    4 thick slices ciabatta or focaccia, torn into 1/2-inch cubes\n    5 tablespoons unsalted butter, divided (plus more for greasing the baking dish)\n    1/2 pound grilled chicken breast, torn into large chunks\n    3 tablespoons flour\n    3 cups whole milk\n    2 cups cream\n    3 1/2 cups shredded, low-moisture mozzarella, divided\n    2 tablespoons cream cheese\n    1 1/2 teaspoons garlic powder\n    1 1/2 teaspoons onion powder\n    1 teaspoon red pepper flakes\n    Kosher salt and freshly ground black pepper, to taste\n    1 cup loosely packed fresh basil, torn and divided\n    2 (6 1/2-ounce) jars marinated and quarter-cut artichoke hearts, drained (for more tang, reserve some of the liquid)\n    2 cups loosely packed fresh baby spinach"], ["directions", "\n    Preheat the oven to 375°F.\n    Bring a pot of water to a boil and salt generously. Cook the pasta al dente, according to the package instructions. Drain the pasta and set aside, reserving 1 cup of the pasta water.\n    Melt 2 tablespoons butter in a saucepan or microwave (for the microwave, use 30-second intervals). In a bowl, toss the ciabatta or focaccia chunks with the melted butter and set aside.\n    In a large, heavy-bottomed pot, heat 3 tablespoons butter over medium heat. Once the butter is melted and bubbling, add the flour and whisk together to form a thick, smooth roux (if too thick, add more butter; if too thin, add more flour). Keep whisking over low heat until the roux takes on a light brown color and gives off a slightly nutty smell (you shouldn’t be able to smell the raw flour), about 2 to 5 minutes.\n    Then whisk in the milk and cream until it’s fully incorporated with the roux. Bring to a simmer over medium heat, whisking occasionally, until the mixture bubbles and thickens. Turn down the heat to low and whisk in 2 1/2 cups mozzarella and the cream cheese until fully melted and incorporated. Whisk in the garlic powder, onion powder, red pepper flakes, plus salt and pepper, to taste.\n    Stir in 2/3 cup basil, artichokes (for a tangier sauce, add some of the artichoke liquid), grilled chicken, and cooked pasta. If the sauce is too thick, add the reserved pasta water as needed to loosen it up. Add salt and pepper, to taste. Turn off the heat on the stovetop. Stir in the spinach.\n    Butter a large casserole dish (I used a 10 x 10-inch, but you could use a slightly larger one and be just fine) and add the pasta mixture to the dish. Top with the buttered bread chunks. Sprinkle 1 cup mozzarella and 1/3 cup basil over top. Bake the dish until the cheese is browned and bubbling, about 30 minutes.\n    Serve hot out of the oven and don’t forget to snap a pic of that cheese pull."], ["image_url", "https://images.food52.com/m4hNhS9RDJPlk-Dwz8ZlUqUKVaA=/753x502/5bfde799-47b3-4dbd-ab2c-d5152082695d--2019-0305_creamy-cheesy-artichoke-pasta-bake_3x2_rocky-luten_019.jpg"], ["source_url", "https://food52.com/recipes/80682-creamy-cheesy-artichoke-chicken-pasta-bake"], ["created_at", "2019-03-25 22:59:16.545185"], ["updated_at", "2019-03-25 22:59:16.545185"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:72
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:72
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTag Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = $1 LIMIT $2[0m  [["name", "Cheesy"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:73
+  [1m[36mTag Create (0.5ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Cheesy"], ["created_at", "2019-03-25 22:59:16.564049"], ["updated_at", "2019-03-25 22:59:16.564049"]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:74
+  [1m[36mRecipeTag Create (2.0ms)[0m  [1m[32mINSERT INTO "recipe_tags" ("recipe_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 5], ["tag_id", 1], ["created_at", "2019-03-25 22:59:16.577057"], ["updated_at", "2019-03-25 22:59:16.577057"]]
+  ↳ db/seeds.rb:74
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:74
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:76
+  [1m[36mRecipe Create (0.6ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "ingredient_blob", "directions", "cooking_time", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 1], ["title", "Epic Cobb Salad for One"], ["ingredient_blob", "3 to 4\tslices bacon, cut in half\n    1\tbone-in, skin-on chicken thigh\n    Kosher salt and freshly ground black pepper, to taste\n    1/2\thead radicchio, cut into quarters so you're left with triangles (or however the heck you want to do it)\n    1\ttablespoon malt vinegar\n    2\ttablespoons extra-virgin olive oil\n    1\tounce blue cheese, chunked, at room temperature\n    1\thandful cherry or Campari tomatoes, cut in half\n    1/2\tavocado, thinly sliced\n    1\tlarge organic egg, boiled for 7 to 8 minutes, peeled, then quartered\n    1\ttablespoon chives, finely chopped"], ["directions", "Preheat oven to 400°F. Starting from a cold, oven-safe pan over medium heat, cook the bacon, 8 to 10 minutes, or until crispy on both sides. Remove and set aside. Season the chicken thigh with salt and pepper on both sides, then sear, skin-side down, in the bacon fat, 2 to 3 minutes. Turn chicken over, transfer pan to the oven, and roast for 15 minutes, or until cooked through. Set aside to cool slightly, then carve into bite-size pieces. Lay the radicchio in one even layer on the largest plate you’ve got. Sprinkle over the malt vinegar, olive oil, and salt and pepper. (Sometimes I do a pinch of sugar to offset the bitterness.) Assemble the salad: In six color-blocked compartments over the radicchio, arrange the bacon, chicken, blue cheese, tomatoes, avocado, and egg so the plate is bulging with FOOD. Season the tomatoes, avocado, and egg with salt and pepper, then garnish the entire plate with chives."], ["cooking_time", "40 minutes"], ["image_url", "https://images.food52.com/03GkFdTlRWsXwh3uOi31Uwfzclg=/filters:format(webp)/f573df36-ce12-4b3b-b4e9-5831d0541bd9--2019-0301_cobb-salad-for-one_3x2_ty-mecham_001.jpeg"], ["source_url", "https://food52.com/recipes/80707-epic-cobb-salad-for-one"], ["created_at", "2019-03-25 22:59:16.581289"], ["updated_at", "2019-03-25 22:59:16.581289"]]
+  ↳ db/seeds.rb:76
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:96
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:97
+  [1m[36mTag Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = $1 LIMIT $2[0m  [["name", "Salads"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:97
+  [1m[36mTag Create (0.2ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Salads"], ["created_at", "2019-03-25 22:59:16.585651"], ["updated_at", "2019-03-25 22:59:16.585651"]]
+  ↳ db/seeds.rb:97
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:97
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:98
+  [1m[36mRecipeTag Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_tags" ("recipe_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 6], ["tag_id", 2], ["created_at", "2019-03-25 22:59:16.587844"], ["updated_at", "2019-03-25 22:59:16.587844"]]
+  ↳ db/seeds.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:98
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Destroy (0.5ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Destroy (0.9ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipe Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mComment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTag Load (1.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Destroy (0.6ms)[0m  [1m[31mDELETE FROM "tags" WHERE "tags"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Destroy (0.3ms)[0m  [1m[31mDELETE FROM "tags" WHERE "tags"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRecipeTag Load (0.8ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipeTag Destroy (0.5ms)[0m  [1m[31mDELETE FROM "recipe_tags" WHERE "recipe_tags"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipeTag Destroy (0.3ms)[0m  [1m[31mDELETE FROM "recipe_tags" WHERE "recipe_tags"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["username", "User1"], ["created_at", "2019-03-25 23:02:22.594646"], ["updated_at", "2019-03-25 23:02:22.594646"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "ingredient_blob", "directions", "cooking_time", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["title", "Roasted Shrimp & Asparagus Scampi"], ["ingredient_blob", "1 1/2 pounds shrimp\n    1 pound asparagus, tough ends discarded, cut into 1-inch pieces\n    3 tablespoons extra-virgin olive oil\n    4 garlic cloves, minced\n    1/2 teaspoon red pepper flakes (optional)\n    1 teaspoon kosher salt\n    1/4 cup dry white wine or rosé (or water)\n    2 tablespoons unsalted butter, melted\n    The juice and zest of 1 lemon, plus extra lemon wedges for serving\n    1 large handful Italian parsley leaves, finely chopped\n    1 pound spaghetti, cooked until al dente"], ["directions", "\n    Preheat your broiler to high and position your oven rack so that it’s about 6 inches from the broiler.\n    Place the shrimp and asparagus on a sheet pan and drizzle with the olive oil. Sprinkle with the minced garlic, red pepper flakes (if using), and salt and use your hands to mix everything together. Spread the shrimp and asparagus in an even layer and pour the wine over them.\n    Broil the mixture, stirring once while it cooks, until the shrimp are pink and firm to the touch and the asparagus is tender, about 5 minutes all together.\n    Drizzle the butter and the lemon juice over the shrimp and asparagus, and sprinkle with the lemon zest and parsley. Use two spoons to toss everything together.\n    Transfer the scampi and all of the sauce to a large serving bowl along with the spaghetti. Stir well to coat the spaghetti with the sauce. Serve immediately while warm along with lemon wedges for squeezing over."], ["cooking_time", "25 minutes"], ["image_url", "https://images.food52.com/LBwo6tim9hgCfWA0tVrUBr8Asdk=/753x502/e814502e-8a1c-4ef4-b635-55c28e323d1b--2019-0206_sponsored_sofia_shrimp-scampi_3x2_rocky-luten_021.jpg"], ["source_url", "https://food52.com/recipes/80478-roasted-shrimp-asparagus-scampi"], ["created_at", "2019-03-25 23:02:22.614897"], ["updated_at", "2019-03-25 23:02:22.614897"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("recipe_id", "content", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe_id", 7], ["content", "So easy to make. But takes a long time."], ["rating", 3], ["created_at", "2019-03-25 23:02:22.627199"], ["updated_at", "2019-03-25 23:02:22.627199"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mComment Create (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("recipe_id", "content", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["recipe_id", 7], ["content", "I actually hate this."], ["rating", 0], ["created_at", "2019-03-25 23:02:22.630198"], ["updated_at", "2019-03-25 23:02:22.630198"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mRecipe Create (0.6ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "ingredient_blob", "directions", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 2], ["title", "Creamy, Cheesy Artichoke & Chicken Pasta Bake"], ["ingredient_blob", " 1 pound penne rigate\n    4 thick slices ciabatta or focaccia, torn into 1/2-inch cubes\n    5 tablespoons unsalted butter, divided (plus more for greasing the baking dish)\n    1/2 pound grilled chicken breast, torn into large chunks\n    3 tablespoons flour\n    3 cups whole milk\n    2 cups cream\n    3 1/2 cups shredded, low-moisture mozzarella, divided\n    2 tablespoons cream cheese\n    1 1/2 teaspoons garlic powder\n    1 1/2 teaspoons onion powder\n    1 teaspoon red pepper flakes\n    Kosher salt and freshly ground black pepper, to taste\n    1 cup loosely packed fresh basil, torn and divided\n    2 (6 1/2-ounce) jars marinated and quarter-cut artichoke hearts, drained (for more tang, reserve some of the liquid)\n    2 cups loosely packed fresh baby spinach"], ["directions", "\n    Preheat the oven to 375°F.\n    Bring a pot of water to a boil and salt generously. Cook the pasta al dente, according to the package instructions. Drain the pasta and set aside, reserving 1 cup of the pasta water.\n    Melt 2 tablespoons butter in a saucepan or microwave (for the microwave, use 30-second intervals). In a bowl, toss the ciabatta or focaccia chunks with the melted butter and set aside.\n    In a large, heavy-bottomed pot, heat 3 tablespoons butter over medium heat. Once the butter is melted and bubbling, add the flour and whisk together to form a thick, smooth roux (if too thick, add more butter; if too thin, add more flour). Keep whisking over low heat until the roux takes on a light brown color and gives off a slightly nutty smell (you shouldn’t be able to smell the raw flour), about 2 to 5 minutes.\n    Then whisk in the milk and cream until it’s fully incorporated with the roux. Bring to a simmer over medium heat, whisking occasionally, until the mixture bubbles and thickens. Turn down the heat to low and whisk in 2 1/2 cups mozzarella and the cream cheese until fully melted and incorporated. Whisk in the garlic powder, onion powder, red pepper flakes, plus salt and pepper, to taste.\n    Stir in 2/3 cup basil, artichokes (for a tangier sauce, add some of the artichoke liquid), grilled chicken, and cooked pasta. If the sauce is too thick, add the reserved pasta water as needed to loosen it up. Add salt and pepper, to taste. Turn off the heat on the stovetop. Stir in the spinach.\n    Butter a large casserole dish (I used a 10 x 10-inch, but you could use a slightly larger one and be just fine) and add the pasta mixture to the dish. Top with the buttered bread chunks. Sprinkle 1 cup mozzarella and 1/3 cup basil over top. Bake the dish until the cheese is browned and bubbling, about 30 minutes.\n    Serve hot out of the oven and don’t forget to snap a pic of that cheese pull."], ["image_url", "https://images.food52.com/m4hNhS9RDJPlk-Dwz8ZlUqUKVaA=/753x502/5bfde799-47b3-4dbd-ab2c-d5152082695d--2019-0305_creamy-cheesy-artichoke-pasta-bake_3x2_rocky-luten_019.jpg"], ["source_url", "https://food52.com/recipes/80682-creamy-cheesy-artichoke-chicken-pasta-bake"], ["created_at", "2019-03-25 23:02:22.632684"], ["updated_at", "2019-03-25 23:02:22.632684"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:72
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("recipe_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 8], ["content", "Make this for Pierre."], ["created_at", "2019-03-25 23:02:22.635221"], ["updated_at", "2019-03-25 23:02:22.635221"]]
+  ↳ db/seeds.rb:72
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mTag Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = $1 LIMIT $2[0m  [["name", "Cheesy"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:73
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Cheesy"], ["created_at", "2019-03-25 23:02:22.646952"], ["updated_at", "2019-03-25 23:02:22.646952"]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:74
+  [1m[36mRecipeTag Create (0.4ms)[0m  [1m[32mINSERT INTO "recipe_tags" ("recipe_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 8], ["tag_id", 3], ["created_at", "2019-03-25 23:02:22.657985"], ["updated_at", "2019-03-25 23:02:22.657985"]]
+  ↳ db/seeds.rb:74
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:74
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:76
+  [1m[36mRecipe Create (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "ingredient_blob", "directions", "cooking_time", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["title", "Epic Cobb Salad for One"], ["ingredient_blob", "3 to 4\tslices bacon, cut in half\n    1\tbone-in, skin-on chicken thigh\n    Kosher salt and freshly ground black pepper, to taste\n    1/2\thead radicchio, cut into quarters so you're left with triangles (or however the heck you want to do it)\n    1\ttablespoon malt vinegar\n    2\ttablespoons extra-virgin olive oil\n    1\tounce blue cheese, chunked, at room temperature\n    1\thandful cherry or Campari tomatoes, cut in half\n    1/2\tavocado, thinly sliced\n    1\tlarge organic egg, boiled for 7 to 8 minutes, peeled, then quartered\n    1\ttablespoon chives, finely chopped"], ["directions", "Preheat oven to 400°F. Starting from a cold, oven-safe pan over medium heat, cook the bacon, 8 to 10 minutes, or until crispy on both sides. Remove and set aside. Season the chicken thigh with salt and pepper on both sides, then sear, skin-side down, in the bacon fat, 2 to 3 minutes. Turn chicken over, transfer pan to the oven, and roast for 15 minutes, or until cooked through. Set aside to cool slightly, then carve into bite-size pieces. Lay the radicchio in one even layer on the largest plate you’ve got. Sprinkle over the malt vinegar, olive oil, and salt and pepper. (Sometimes I do a pinch of sugar to offset the bitterness.) Assemble the salad: In six color-blocked compartments over the radicchio, arrange the bacon, chicken, blue cheese, tomatoes, avocado, and egg so the plate is bulging with FOOD. Season the tomatoes, avocado, and egg with salt and pepper, then garnish the entire plate with chives."], ["cooking_time", "40 minutes"], ["image_url", "https://images.food52.com/03GkFdTlRWsXwh3uOi31Uwfzclg=/filters:format(webp)/f573df36-ce12-4b3b-b4e9-5831d0541bd9--2019-0301_cobb-salad-for-one_3x2_ty-mecham_001.jpeg"], ["source_url", "https://food52.com/recipes/80707-epic-cobb-salad-for-one"], ["created_at", "2019-03-25 23:02:22.660093"], ["updated_at", "2019-03-25 23:02:22.660093"]]
+  ↳ db/seeds.rb:76
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:96
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("recipe_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 9], ["content", "Great lunch salad"], ["created_at", "2019-03-25 23:02:22.662205"], ["updated_at", "2019-03-25 23:02:22.662205"]]
+  ↳ db/seeds.rb:96
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:96
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:97
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = $1 LIMIT $2[0m  [["name", "Salads"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:97
+  [1m[36mTag Create (0.2ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Salads"], ["created_at", "2019-03-25 23:02:22.664683"], ["updated_at", "2019-03-25 23:02:22.664683"]]
+  ↳ db/seeds.rb:97
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:97
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:98
+  [1m[36mRecipeTag Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_tags" ("recipe_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["recipe_id", 9], ["tag_id", 4], ["created_at", "2019-03-25 23:02:22.666325"], ["updated_at", "2019-03-25 23:02:22.666325"]]
+  ↳ db/seeds.rb:98
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:98
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:05:34 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shaundra/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::RecipesController#index as HTML
+  [1m[36mRecipe Load (1.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (42.36ms)
+Completed 500 Internal Server Error in 109ms (ActiveRecord: 12.2ms)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :recipe_tags in model Recipe):
+  
+app/controllers/api/v1/recipes_controller.rb:5:in `index'
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:06:20 -0700
+Processing by Api::V1::RecipesController#index as HTML
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mTag Load (1.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] No serializer found for resource: #<Tag id: 3, name: "Cheesy", created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] No serializer found for resource: #<Tag id: 4, name: "Salads", created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Tag id: 3, name: "Cheesy", created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Tag id: 4, name: "Salads", created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (88.44ms)
+Completed 200 OK in 110ms (Views: 81.6ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2019-03-25 16:06:20 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:09:14 -0700
+Processing by Api::V1::RecipesController#index as HTML
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] No serializer found for resource: #<Tag id: 3, name: "Cheesy", created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] No serializer found for resource: #<Tag id: 4, name: "Salads", created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:5
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Tag id: 3, name: "Cheesy", created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Tag id: 4, name: "Salads", created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (72.25ms)
+Completed 200 OK in 98ms (Views: 68.2ms | ActiveRecord: 21.7ms)
+
+
+Started GET "/api/v1/tags" for ::1 at 2019-03-25 16:15:04 -0700
+Processing by Api::V1::TagsController#index as HTML
+  [1m[36mTag Load (1.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:4
+No serializer found for resource: #<Tag id: 3, name: "Cheesy", created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Tag::ActiveRecord_Relation (0.46ms)
+Completed 200 OK in 28ms (Views: 14.0ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/api/v1/tags" for ::1 at 2019-03-25 16:17:24 -0700
+Processing by Api::V1::TagsController#index as HTML
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mRecipeTag Load (0.5ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 3, recipe_id: 8, tag_id: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mRecipeTag Load (0.3ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 4, recipe_id: 9, tag_id: 4, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 3, recipe_id: 8, tag_id: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 4, recipe_id: 9, tag_id: 4, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (89.82ms)
+Completed 200 OK in 104ms (Views: 77.9ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/api/v1/tags" for ::1 at 2019-03-25 16:18:39 -0700
+Processing by Api::V1::TagsController#index as HTML
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mRecipeTag Load (0.2ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 3, recipe_id: 8, tag_id: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mRecipeTag Load (0.3ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 4, recipe_id: 9, tag_id: 4, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 3, recipe_id: 8, tag_id: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 4, recipe_id: 9, tag_id: 4, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (71.63ms)
+Completed 200 OK in 85ms (Views: 62.2ms | ActiveRecord: 20.5ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:33:13 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shaundra/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::RecipesController#index as HTML
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (114.6ms)
+Completed 200 OK in 162ms (Views: 126.1ms | ActiveRecord: 26.2ms)
+
+
+Started GET "/api/v1/tags" for ::1 at 2019-03-25 16:33:15 -0700
+Processing by Api::V1::TagsController#index as HTML
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mRecipeTag Load (0.3ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 3, recipe_id: 8, tag_id: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mRecipeTag Load (0.3ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 4, recipe_id: 9, tag_id: 4, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 3, recipe_id: 8, tag_id: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 4, recipe_id: 9, tag_id: 4, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (40.85ms)
+Completed 200 OK in 43ms (Views: 35.8ms | ActiveRecord: 7.0ms)
+
+

@@ -1,0 +1,61 @@
+- import recipe
+  - copy paste (mvp)
+  - by url (stretch)
+- user can associate a single image with a recipe
+  - associate multiple images (mvp)
+- user can multi-tag a recipe
+- user can comment on a recipe
+  - comments should have dates (mvp)
+  - comments can have a rating
+- user can search recipes
+  - by ingredients (mvp**)
+  - by name
+- users can view recipes by
+  - tag (MVP)
+- users can build menus
+- users will be dazzled by how stylistic our app is (MVP)
+- users can view a calendar of their makes (stretch)
+- users can edit the recipe display text (stretch)
+  - some library that allows to double click into an editable text box
+
+
+- Recipe
+  - Associations
+    - B User
+    - HM Tags, T Recipe_Tags
+    - HM Comments
+  - Attributes
+    - ingredients
+    - directions
+    - image url
+    - title
+      - validates :title, presence: true
+    - source url
+    - cooking_time
+    - maybe add
+      - servings
+      - separate prep / cook time?
+- Comment
+  - Associations
+    - B Recipe
+  - Attributes
+    - rating
+      - validates :rating, inclusion: { in: 0..5 }
+    - date
+    - content
+      - validates :comment, length: {minimum: 4}
+- User
+  - Associations
+    - HM Recipes
+  - Attributes
+- Tags
+  - Associations
+    - HM Recipes, T Recipe_Tags
+  - Attributes
+    - name
+      - validates :name, uniqueness: true
+    - created date
+- Recipe_Tag  
+  - Associations
+    - B Recipe
+    - B Tag
