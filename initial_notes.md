@@ -3,7 +3,20 @@
     - models,
     - migrations
     - routes
-
+- Frontend
+  - Refactor OOP
+  - Side Panel Navigation
+    - View by Tags
+    - View by Recipes
+      - display all recipes in "side panel"
+  - Show Panel
+    - display single recipe
+    - create a new recipe (form)
+    - create a new tag (form)
+      - (make a link from a recipe 'show' page)
+    - create a comment (form)
+    - update a recipe
+    - update a tag
 
 
 
