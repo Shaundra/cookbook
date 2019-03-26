@@ -1,3 +1,13 @@
+- Backend
+  - set-up
+    - models,
+    - migrations
+    - routes
+
+
+
+
+
 - import recipe
   - copy paste (mvp)
   - by url (stretch)

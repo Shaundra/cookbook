@@ -1048,3 +1048,1149 @@ Processing by Api::V1::TagsController#index as HTML
 Completed 200 OK in 43ms (Views: 35.8ms | ActiveRecord: 7.0ms)
 
 
+Started GET "/api/v1/tags" for ::1 at 2019-03-25 16:38:53 -0700
+Processing by Api::V1::TagsController#index as HTML
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mRecipeTag Load (0.4ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 3, recipe_id: 8, tag_id: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mRecipeTag Load (0.3ms)[0m  [1m[34mSELECT "recipe_tags".* FROM "recipe_tags" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 4, recipe_id: 9, tag_id: 4, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 3, recipe_id: 8, tag_id: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<RecipeTag id: 4, recipe_id: 9, tag_id: 4, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/tags_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.74ms)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:38:55 -0700
+Processing by Api::V1::RecipesController#index as HTML
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.26ms)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:51:24 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (1.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (1.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.4ms)
+Completed 200 OK in 42ms (Views: 26.9ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:51:26 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (1.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (38.23ms)
+Completed 200 OK in 41ms (Views: 33.8ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:54:22 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.97ms)
+Completed 200 OK in 29ms (Views: 24.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:54:25 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.96ms)
+Completed 200 OK in 32ms (Views: 28.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:55:20 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shaundra/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (94.23ms)
+Completed 200 OK in 141ms (Views: 106.3ms | ActiveRecord: 25.8ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:55:42 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.24ms)
+Completed 200 OK in 30ms (Views: 23.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:55:48 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (1.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (1.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.85ms)
+Completed 200 OK in 39ms (Views: 33.4ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:56:01 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.94ms)
+Completed 200 OK in 32ms (Views: 27.5ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:56:24 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (25.47ms)
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:58:02 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (1.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (27.41ms)
+Completed 200 OK in 31ms (Views: 26.8ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 16:58:21 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (1.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (2.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (39.6ms)
+Completed 200 OK in 44ms (Views: 35.0ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:12:18 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (35.81ms)
+Completed 200 OK in 42ms (Views: 28.7ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:12:40 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.68ms)
+Completed 200 OK in 29ms (Views: 24.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:13:24 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.86ms)
+Completed 200 OK in 22ms (Views: 18.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:14:36 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (23.31ms)
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:14:57 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (27.28ms)
+Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:15:27 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.69ms)
+Completed 200 OK in 30ms (Views: 25.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:15:53 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.44ms)
+Completed 200 OK in 29ms (Views: 24.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:16:10 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (30.44ms)
+Completed 200 OK in 33ms (Views: 29.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:18:44 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (23.57ms)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:25:39 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (1.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.39ms)
+Completed 200 OK in 34ms (Views: 18.8ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:26:02 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (1.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.3ms)
+Completed 200 OK in 29ms (Views: 22.5ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:26:13 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (10.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (23.85ms)
+Completed 200 OK in 37ms (Views: 22.2ms | ActiveRecord: 14.5ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:26:50 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (27.27ms)
+Completed 200 OK in 29ms (Views: 25.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:27:09 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (25.49ms)
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:28:03 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (1.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (38.62ms)
+Completed 200 OK in 41ms (Views: 35.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:28:19 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.0ms)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:28:52 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (20.09ms)
+Completed 200 OK in 23ms (Views: 19.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:30:43 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.7ms)
+Completed 200 OK in 38ms (Views: 33.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/api/v1/recipes" for ::1 at 2019-03-25 17:30:59 -0700
+Processing by Api::V1::RecipesController#index as */*
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 3, recipe_id: 7, content: "So easy to make. But takes a long time.", rating: 3, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 5, recipe_id: 8, content: "Make this for Pierre.", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers] No serializer found for resource: #<Comment id: 6, recipe_id: 9, content: "Great lunch salad", rating: nil, created_at: "2019-03-25 23:02:22", updated_at: "2019-03-25 23:02:22">
+[active_model_serializers]   [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers]   [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_tags" ON "recipes"."id" = "recipe_tags"."recipe_id" WHERE "recipe_tags"."tag_id" = $1[0m  [["tag_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:6
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.52ms)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 3.0ms)
+
+
