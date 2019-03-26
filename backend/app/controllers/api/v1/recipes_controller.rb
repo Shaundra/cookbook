@@ -7,13 +7,14 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
-
+    @recipe = Recipe.create(recipe_params)
+    render json: @recipe
   end
 
   private
 
   def recipe_params
-    params.permit(:title, :ingredient_blob, :directions, :cooking_time, :image_url, :source_url)
+    params.require(:recipe).permit(:user_id, :title, :ingredient_blob, :directions, :cooking_time, :image_url, :source_url)
   end
 
   def find_recipe

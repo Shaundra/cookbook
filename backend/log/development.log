@@ -3672,3 +3672,123 @@ Processing by Api::V1::TagsController#index as */*
 Completed 200 OK in 25ms (Views: 20.7ms | ActiveRecord: 4.2ms)
 
 
+Started POST "/api/v1/recipes" for ::1 at 2019-03-26 14:20:01 -0700
+Processing by Api::V1::RecipesController#create as */*
+  Parameters: {"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "source_url"=>"", "image_url"=>"", "recipe"=>{"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "image_url"=>"", "source_url"=>""}}
+Completed 500 Internal Server Error in 187463ms (ActiveRecord: 5.9ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/api/v1/recipes_controller.rb:11:in `create'
+Started POST "/api/v1/recipes" for ::1 at 2019-03-26 14:23:38 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shaundra/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::RecipesController#create as */*
+  Parameters: {"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "source_url"=>"", "image_url"=>"", "recipe"=>{"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "image_url"=>"", "source_url"=>""}}
+Completed 500 Internal Server Error in 115034ms (ActiveRecord: 2.7ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/api/v1/recipes_controller.rb:11:in `create'
+Started POST "/api/v1/recipes" for ::1 at 2019-03-26 14:25:45 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shaundra/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::RecipesController#create as */*
+  Parameters: {"recipe"=>{}}
+Completed 500 Internal Server Error in 45812ms (ActiveRecord: 3.9ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/api/v1/recipes_controller.rb:11:in `create'
+Started POST "/api/v1/recipes" for ::1 at 2019-03-26 14:27:06 -0700
+Processing by Api::V1::RecipesController#create as */*
+  Parameters: {"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "source_url"=>"", "image_url"=>"", "recipe"=>{"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "image_url"=>"", "source_url"=>""}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/api/v1/recipes_controller.rb:11:in `create'
+Started POST "/api/v1/recipes" for ::1 at 2019-03-26 14:27:37 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shaundra/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::RecipesController#create as */*
+  Parameters: {"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "source_url"=>"", "image_url"=>"", "recipe"=>{"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "image_url"=>"", "source_url"=>""}}
+Completed 500 Internal Server Error in 486868ms (ActiveRecord: 3.7ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/api/v1/recipes_controller.rb:12:in `create'
+Started POST "/api/v1/recipes" for ::1 at 2019-03-26 14:35:56 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shaundra/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::RecipesController#create as */*
+  Parameters: {"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "source_url"=>"", "image_url"=>"", "recipe"=>{"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "image_url"=>"", "source_url"=>""}}
+Completed 500 Internal Server Error in 190954ms (ActiveRecord: 2.8ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/api/v1/recipes_controller.rb:12:in `create'
+Started POST "/api/v1/recipes" for ::1 at 2019-03-26 14:39:23 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/shaundra/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::RecipesController#create as */*
+  Parameters: {"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "source_url"=>"", "image_url"=>"", "recipe"=>{"user_id"=>2, "title"=>"Spaghetti", "ingredient_blob"=>"", "directions"=>"", "cooking_time"=>"", "image_url"=>"", "source_url"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:10
+  [1m[36mRecipe Create (3.6ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "ingredient_blob", "directions", "cooking_time", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["title", "Spaghetti"], ["ingredient_blob", ""], ["directions", ""], ["cooking_time", ""], ["image_url", ""], ["source_url", ""], ["created_at", "2019-03-26 21:39:23.736155"], ["updated_at", "2019-03-26 21:39:23.736155"]]
+  ↳ app/controllers/api/v1/recipes_controller.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:10
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:11
+[active_model_serializers]   [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:11
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:11
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (55.95ms)
+Completed 200 OK in 91ms (Views: 60.9ms | ActiveRecord: 23.2ms)
+
+
+Started POST "/api/v1/recipes" for ::1 at 2019-03-26 14:43:36 -0700
+Processing by Api::V1::RecipesController#create as */*
+  Parameters: {"user_id"=>2, "title"=>"Peruvian Chicken & Basil Pasta (Sopa Seca)", "ingredient_blob"=>"4\tcups packed basil leaves\n32\tounces chicken stock (about 4 cups)\n1 1/2\tpounds boneless, skinless chicken thighs, cut into 1-inch pieces\n1/2\tteaspoon ground cumin\nSalt and pepper, to taste\n1/4\tcup vegetable oil\n2\tteaspoons annatto seeds (see Note)\n1\tmedium red onion, finely chopped\n3\tlarge cloves garlic, minced\n1\tmedium carrot, finely diced\n2\ttablespoons ají panca paste (optional, see Note)\n1\tcup finely diced tomato (about 1 large tomato or 3 plum tomatoes)\n1\tpound spaghetti, broken in half\n1\tcup fresh chopped parsley\nCubed avocado, for garnish (optional)", "directions"=>"Add all of the basil leaves and 1 cup of chicken stock to a blender. Puree until smooth. Set aside. In a medium bowl, combine chicken with ground cumin and salt and pepper to taste. Set aside. In a large pot, heat vegetable oil over medium heat. Add annatto seeds and fry for about 6 minutes, stirring often. When the oil is dark orange and the seeds lose their red color, remove pot from the heat. Strain the oil to remove the seeds. Add the strained annatto oil back into the pot. Place the pot back on the burner over medium-high heat. Add the chicken, browning on all sides, then transfer to a clean bowl and set aside. Reduce heat to medium. Add onions and fry until softened. Make sure to scrape up the browned bits from the bottom of the pan. When the onions have softened, add the garlic and fry for one minute, stirring constantly. Add ají panca paste (if using) and stir to combine with the garlic and onions. Fry for one minute, stirring often. Add carrots and fry for one minute. Add the tomatoes to the pot and cook for about 5 minutes, stirring often, or until the tomatoes cook down and the oil separates from the mixture. Add basil puree and stir to combine. Wait for the mixture to come to a simmer. Add salt to taste. (You'll want this a little on the saltier side since you'll be adding pasta to this.) Add the pasta to the pot so they're evenly spread out. Add the rest of the broth and raise the heat to high. Gently nudge the pasta with a wooden spoon around the edges of the pot. Be careful not to break the pasta. You just want to move the pasta around slightly in the sauce. Repeat this every 30 seconds or so until the pasta is pliable, which should take about 5 minutes. Gently stir to coat the pasta with the sauce. Add the chicken to the pot and stir to combine. If the pot has not come to a simmer yet, bring to a simmer. Make sure the pasta is mostly submerged in the liquid. After 5 minutes, uncover the pot and stir, making sure to scrape up any pasta that may have stuck to the bottom of the pot. Reduce the heat to medium-low and cover the pot again. After 5 minutes, uncover the pot and stir again. Continue to cook uncovered over medium-low heat until the pasta is cooked through and has soaked up the liquid, about 5 to 10 minutes. You can opt to have a wetter sopa seca or a dryer sopa seca. It’s a matter of personal preference, and one way is not considered more authentic than the other. When the sopa seca has reached the desired consistency, remove from the heat and stir in the parsley. Garnish with the optional avocado cubes. Note: Annatto seeds (also known as achiote) are small seeds that are naturally covered in a red pigment. The seeds are fried in oil, which turns the oil a deep orange color. This oil is a necessary ingredient in many Latin American dishes, including sopa seca. If you cannot find annatto seeds, a teaspoon of ground annatto powder will suffice. Add it to the pot after you have added the ají panca paste. Ají panca paste is made from a dried red chili that has a mild, chocolatey sweetness and smoldering heat. It forms the backbone of many Peruvian dishes. You can find it at many Latino stores or online.", "cooking_time"=>"50 minute", "source_url"=>"https://food52.com/recipes/80701-peruvian-chicken-basil-pasta-sopa-seca", "image_url"=>"https://images.food52.com/ILsUR8YK5ezv7C8dor15LRjiUYk=/filters:format(webp)/eff31052-3564-4936-916a-0931096ebfc1--2019-0219_sopa-seca_3x2_julia-gartland_152.jpeg", "recipe"=>{"user_id"=>2, "title"=>"Peruvian Chicken & Basil Pasta (Sopa Seca)", "ingredient_blob"=>"4\tcups packed basil leaves\n32\tounces chicken stock (about 4 cups)\n1 1/2\tpounds boneless, skinless chicken thighs, cut into 1-inch pieces\n1/2\tteaspoon ground cumin\nSalt and pepper, to taste\n1/4\tcup vegetable oil\n2\tteaspoons annatto seeds (see Note)\n1\tmedium red onion, finely chopped\n3\tlarge cloves garlic, minced\n1\tmedium carrot, finely diced\n2\ttablespoons ají panca paste (optional, see Note)\n1\tcup finely diced tomato (about 1 large tomato or 3 plum tomatoes)\n1\tpound spaghetti, broken in half\n1\tcup fresh chopped parsley\nCubed avocado, for garnish (optional)", "directions"=>"Add all of the basil leaves and 1 cup of chicken stock to a blender. Puree until smooth. Set aside. In a medium bowl, combine chicken with ground cumin and salt and pepper to taste. Set aside. In a large pot, heat vegetable oil over medium heat. Add annatto seeds and fry for about 6 minutes, stirring often. When the oil is dark orange and the seeds lose their red color, remove pot from the heat. Strain the oil to remove the seeds. Add the strained annatto oil back into the pot. Place the pot back on the burner over medium-high heat. Add the chicken, browning on all sides, then transfer to a clean bowl and set aside. Reduce heat to medium. Add onions and fry until softened. Make sure to scrape up the browned bits from the bottom of the pan. When the onions have softened, add the garlic and fry for one minute, stirring constantly. Add ají panca paste (if using) and stir to combine with the garlic and onions. Fry for one minute, stirring often. Add carrots and fry for one minute. Add the tomatoes to the pot and cook for about 5 minutes, stirring often, or until the tomatoes cook down and the oil separates from the mixture. Add basil puree and stir to combine. Wait for the mixture to come to a simmer. Add salt to taste. (You'll want this a little on the saltier side since you'll be adding pasta to this.) Add the pasta to the pot so they're evenly spread out. Add the rest of the broth and raise the heat to high. Gently nudge the pasta with a wooden spoon around the edges of the pot. Be careful not to break the pasta. You just want to move the pasta around slightly in the sauce. Repeat this every 30 seconds or so until the pasta is pliable, which should take about 5 minutes. Gently stir to coat the pasta with the sauce. Add the chicken to the pot and stir to combine. If the pot has not come to a simmer yet, bring to a simmer. Make sure the pasta is mostly submerged in the liquid. After 5 minutes, uncover the pot and stir, making sure to scrape up any pasta that may have stuck to the bottom of the pot. Reduce the heat to medium-low and cover the pot again. After 5 minutes, uncover the pot and stir again. Continue to cook uncovered over medium-low heat until the pasta is cooked through and has soaked up the liquid, about 5 to 10 minutes. You can opt to have a wetter sopa seca or a dryer sopa seca. It’s a matter of personal preference, and one way is not considered more authentic than the other. When the sopa seca has reached the desired consistency, remove from the heat and stir in the parsley. Garnish with the optional avocado cubes. Note: Annatto seeds (also known as achiote) are small seeds that are naturally covered in a red pigment. The seeds are fried in oil, which turns the oil a deep orange color. This oil is a necessary ingredient in many Latin American dishes, including sopa seca. If you cannot find annatto seeds, a teaspoon of ground annatto powder will suffice. Add it to the pot after you have added the ají panca paste. Ají panca paste is made from a dried red chili that has a mild, chocolatey sweetness and smoldering heat. It forms the backbone of many Peruvian dishes. You can find it at many Latino stores or online.", "cooking_time"=>"50 minute", "image_url"=>"https://images.food52.com/ILsUR8YK5ezv7C8dor15LRjiUYk=/filters:format(webp)/eff31052-3564-4936-916a-0931096ebfc1--2019-0219_sopa-seca_3x2_julia-gartland_152.jpeg", "source_url"=>"https://food52.com/recipes/80701-peruvian-chicken-basil-pasta-sopa-seca"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:10
+  [1m[36mRecipe Create (0.9ms)[0m  [1m[32mINSERT INTO "recipes" ("user_id", "title", "ingredient_blob", "directions", "cooking_time", "image_url", "source_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", 2], ["title", "Peruvian Chicken & Basil Pasta (Sopa Seca)"], ["ingredient_blob", "4\tcups packed basil leaves\n32\tounces chicken stock (about 4 cups)\n1 1/2\tpounds boneless, skinless chicken thighs, cut into 1-inch pieces\n1/2\tteaspoon ground cumin\nSalt and pepper, to taste\n1/4\tcup vegetable oil\n2\tteaspoons annatto seeds (see Note)\n1\tmedium red onion, finely chopped\n3\tlarge cloves garlic, minced\n1\tmedium carrot, finely diced\n2\ttablespoons ají panca paste (optional, see Note)\n1\tcup finely diced tomato (about 1 large tomato or 3 plum tomatoes)\n1\tpound spaghetti, broken in half\n1\tcup fresh chopped parsley\nCubed avocado, for garnish (optional)"], ["directions", "Add all of the basil leaves and 1 cup of chicken stock to a blender. Puree until smooth. Set aside. In a medium bowl, combine chicken with ground cumin and salt and pepper to taste. Set aside. In a large pot, heat vegetable oil over medium heat. Add annatto seeds and fry for about 6 minutes, stirring often. When the oil is dark orange and the seeds lose their red color, remove pot from the heat. Strain the oil to remove the seeds. Add the strained annatto oil back into the pot. Place the pot back on the burner over medium-high heat. Add the chicken, browning on all sides, then transfer to a clean bowl and set aside. Reduce heat to medium. Add onions and fry until softened. Make sure to scrape up the browned bits from the bottom of the pan. When the onions have softened, add the garlic and fry for one minute, stirring constantly. Add ají panca paste (if using) and stir to combine with the garlic and onions. Fry for one minute, stirring often. Add carrots and fry for one minute. Add the tomatoes to the pot and cook for about 5 minutes, stirring often, or until the tomatoes cook down and the oil separates from the mixture. Add basil puree and stir to combine. Wait for the mixture to come to a simmer. Add salt to taste. (You'll want this a little on the saltier side since you'll be adding pasta to this.) Add the pasta to the pot so they're evenly spread out. Add the rest of the broth and raise the heat to high. Gently nudge the pasta with a wooden spoon around the edges of the pot. Be careful not to break the pasta. You just want to move the pasta around slightly in the sauce. Repeat this every 30 seconds or so until the pasta is pliable, which should take about 5 minutes. Gently stir to coat the pasta with the sauce. Add the chicken to the pot and stir to combine. If the pot has not come to a simmer yet, bring to a simmer. Make sure the pasta is mostly submerged in the liquid. After 5 minutes, uncover the pot and stir, making sure to scrape up any pasta that may have stuck to the bottom of the pot. Reduce the heat to medium-low and cover the pot again. After 5 minutes, uncover the pot and stir again. Continue to cook uncovered over medium-low heat until the pasta is cooked through and has soaked up the liquid, about 5 to 10 minutes. You can opt to have a wetter sopa seca or a dryer sopa seca. It’s a matter of personal preference, and one way is not considered more authentic than the other. When the sopa seca has reached the desired consistency, remove from the heat and stir in the parsley. Garnish with the optional avocado cubes. Note: Annatto seeds (also known as achiote) are small seeds that are naturally covered in a red pigment. The seeds are fried in oil, which turns the oil a deep orange color. This oil is a necessary ingredient in many Latin American dishes, including sopa seca. If you cannot find annatto seeds, a teaspoon of ground annatto powder will suffice. Add it to the pot after you have added the ají panca paste. Ají panca paste is made from a dried red chili that has a mild, chocolatey sweetness and smoldering heat. It forms the backbone of many Peruvian dishes. You can find it at many Latino stores or online."], ["cooking_time", "50 minute"], ["image_url", "https://images.food52.com/ILsUR8YK5ezv7C8dor15LRjiUYk=/filters:format(webp)/eff31052-3564-4936-916a-0931096ebfc1--2019-0219_sopa-seca_3x2_julia-gartland_152.jpeg"], ["source_url", "https://food52.com/recipes/80701-peruvian-chicken-basil-pasta-sopa-seca"], ["created_at", "2019-03-26 21:43:36.456920"], ["updated_at", "2019-03-26 21:43:36.456920"]]
+  ↳ app/controllers/api/v1/recipes_controller.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/recipes_controller.rb:10
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:11
+[active_model_serializers]   [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "recipe_tags" ON "tags"."id" = "recipe_tags"."tag_id" WHERE "recipe_tags"."recipe_id" = $1[0m  [["recipe_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:11
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = $1[0m  [["recipe_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/recipes_controller.rb:11
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (10.46ms)
+Completed 200 OK in 19ms (Views: 9.9ms | ActiveRecord: 2.4ms)
+
+
