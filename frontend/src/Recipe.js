@@ -7,23 +7,26 @@ class Recipe {
     this.cooking_time = recipeInfo.cooking_time
     this.image_url = recipeInfo.image_url
     this.source_url = recipeInfo.source_url
+    this.comments = recipeInfo.comments
   }
 
-  static renderRecipes(url) {
-    const ul = document.getElementById('list')
-    fetch(url)
-    .then(res => res.json())
-    .then(json => this.appendRecipes(json, ul))
+  createElmt(elmt, parent, callback= ()=> {}) {
+    let e = document.createElement(elmt);
+    callback(e);
+    parent.appendChild(e);
+    return e;
   }
 
-  static appendRecipes(source, parent) {
-    source.forEach(function(recipe) {
-      let newRecipe = new Recipe(recipe);
-      let li = newRecipe.createElmt('li', parent, (li) => {
-        li.innerText = newRecipe.title;
-        li.setAttribute('id', newRecipe.id)
-      })
-      li.addEventListener('click', () => {newRecipe.displayRecipe()})
+  static addRecipe(recipeData) {
+    let newRecipe = new Recipe(recipeData);
+
+    let ul = document.getElementById('list')
+    let li = newRecipe.createElmt('li', ul, (li) => {
+      li.innerText = newRecipe.title
+    })
+
+    li.addEventListener('click', () => {
+      newRecipe.displayRecipe();
     })
   }
 
@@ -32,30 +35,32 @@ class Recipe {
     let showKids = Array.from(showP.children)
     showKids.forEach(function(kid) {kid.remove()})
 
-    let h3 = createElmt('h3', showP)
-    createElmt('a', h3, (a) => {
+    let h3 = this.createElmt('h3', showP)
+    this.createElmt('a', h3, (a) => {
       a.innerText = this.title
       a.href = this.source_url
     })
 
-    this.createElmt('img', showP, (img) => {img.src = recipe.image_url})
-    this.createElmt('p', showP, (p) => {p.innerText = recipe.cooking_time})
-    this.createElmt('p', showP, (p) => {p.innerText = recipe.ingredient_blob})
-    this.createElmt('p', showP, (p) => {p.innerText = recipe.directions})
+    this.createElmt('img', showP, (img) => {img.src = this.image_url})
+    this.createElmt('p', showP, (p) => {p.innerText = this.cooking_time})
+    this.createElmt('p', showP, (p) => {p.innerText = this.ingredient_blob})
+    this.createElmt('p', showP, (p) => {p.innerText = this.directions})
 
-    let commentUl = createElmt('ul', showP)
-    this.comments.forEach(function(comment) {
-      createElmt('li', commentUl, (li) => {
-        li.innerText = `${comment.created_at} -- ${comment.rating} \n ${comment.content}`
+    let commentUl = this.createElmt('ul', showP)
+    this.comments.forEach((comment) => {
+      this.createElmt('li', commentUl, (li) => {
+        li.innerText = `${comment.created_at}  ${(comment.rating > -1) ? "-- " + comment.rating : "" } \n ${comment.content}`
       })
     })
   }
 
-  createElmt(elmt, parent, callback) {
-    let e = document.createElement(elmt);
-    callback(e);
-    parent.appendChild(e);
-    return e;
+  static renderRecipes(url) {
+    const ul = document.getElementById('list')
+    fetch(url)
+    .then(res => res.json())
+    .then(json => json.forEach(function(recipe) {
+      Recipe.addRecipe(recipe)
+    }))
   }
 
 }
