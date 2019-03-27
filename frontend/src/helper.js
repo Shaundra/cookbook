@@ -13,7 +13,17 @@ const Helper = {
     for (let key in attrs) {
       elmt.setAttribute(key, attrs[key])
     }
+  },
+  createImgCols: (parent) => {
+    let colA = Helper.createElmt('div', parent, (div) => {
+      div.className = 'column'
+      div.id = 'column-a'
+    })
+    let colB = Helper.createElmt('div', parent, (div) => {
+      div.className = 'column'
+      div.id = 'column-b'
+    })
+
+   return [colA, colB]
   }
-
-
 }

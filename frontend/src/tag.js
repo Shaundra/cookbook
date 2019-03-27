@@ -8,16 +8,18 @@ class Tag {
   static addTagToSubmenu(tagInfo) {
     let newTag = new Tag(tagInfo);
 
-    let ul = document.getElementById('tagSubmenu')
+    let ul = document.getElementById('tag-ul')
     let li = Helper.createElmt('li', ul)
     Helper.createElmt('a', li, (a) => {
       a.innerText = newTag.name
       a.href = "#"
     })
 
-    let showUl = document.getElementById('show-list')
+    let showDiv = document.getElementById('show-list')
     li.addEventListener('click', () => {
-      newTag.showTagRecipes(showUl);
+      Helper.clearDisplay(showDiv);
+      let tagDiv = Helper.createElmt('div', showDiv, (div) => div.innerText = newTag.name)
+      newTag.showTagRecipes(tagDiv);
     })
   }
 
@@ -25,8 +27,17 @@ class Tag {
     Array.from(showUl.children).forEach((child) => child.remove())
 
     showUl.innerText = this.name
+
+    let isColA = true;
+    let newCols = Helper.createImgCols(showUl)
+
     this.recipes.forEach((recipe) => {
-      Recipe.addRecipe(recipe)
+      if (isColA) {
+        Recipe.addRecipe(recipe, newCols[0])
+      } else {
+        Recipe.addRecipe(recipe, newCols[1])
+      }
+      isColA = !isColA;
     })
   }
 

@@ -11,15 +11,38 @@ class Recipe {
     this.tags = recipeInfo.tags
   }
 
-  static addRecipe(recipeData) {
+  static addRecipe(recipeData, column) {
     let newRecipe = new Recipe(recipeData);
 
-    let showUl = document.getElementById('show-list')
-    let li = Helper.createElmt('li', showUl, (li) => {
-      li.innerText = newRecipe.title
+    // let li = Helper.createElmt('li', showUl, (li) => {
+    //   li.innerText = newRecipe.title
+    //   Helper.createElmt('img', li, (img) => {
+    //     img.src = newRecipe.image_url;
+    //   })
+    // })
+
+    // let imgLab = Helper.createElmt('label', showDiv, (label) => {
+    //   label.innerText = newRecipe.title
+    //   label.setAttribute('for', newRecipe.id)
+    //   Helper.createElmt('img', label, (img) => {
+    //     img.src = newRecipe.image_url;
+    //     img.id = newRecipe.id
+    //   })
+    // })
+    // imgLab.addEventListener('click', () => {
+    //   newRecipe.displayRecipe();
+    // })
+    let imgLabel = Helper.createElmt('label', column, (label) => {
+      label.innerText = newRecipe.title;
+      label.setAttribute('for', newRecipe.id);
     })
 
-    li.addEventListener('click', () => {
+    let img = Helper.createElmt('img', column, (img) => {
+        img.src = newRecipe.image_url;
+        img.id = newRecipe.id
+      })
+
+    img.addEventListener('click', () => {
       newRecipe.displayRecipe();
     })
 
@@ -61,10 +84,21 @@ class Recipe {
   }
 
   static renderRecipes(url) {
+    let showDiv = document.getElementById('show-list')
+    showDiv.classList.add('row')
+
+    let isColA = true;
+
+    let newCols = Helper.createImgCols(showDiv)
     fetch(url)
     .then(res => res.json())
     .then(json => json.forEach(function(recipe) {
-      Recipe.addRecipe(recipe)
+      if (isColA) {
+        Recipe.addRecipe(recipe, newCols[0])
+      } else {
+        Recipe.addRecipe(recipe, newCols[1])
+      }
+      isColA = !isColA;
     }))
   }
 
@@ -72,7 +106,11 @@ class Recipe {
     let showP = document.getElementById('show-panel')
     Helper.clearDisplay(showP)
 
-    let newForm = Helper.createElmt('form', showP,
+    let formDiv = Helper.createElmt('div', showP, (div) => div.className = 'form-container')
+    Helper.createElmt('h1', formDiv, (h1) => h1.innerText = 'Add a Recipe to your Cookbook')
+    Helper.createElmt('hr', formDiv)
+
+    let newForm = Helper.createElmt('form', formDiv,
       (form) => {form.id = 'recipe-form'});
 
     Helper.createElmt('input', newForm, (input) => {
@@ -136,13 +174,14 @@ class Recipe {
     })
 
     Helper.createElmt('input', newForm, (input) => {
-      let attrs = {type: 'submit'};
+      let attrs = {type: 'submit', value: 'Create Recipe'};
       Helper.setAttrs(input, attrs);
-      input.innerText = 'Create Recipe'
+      input.className = 'create-btn';
     })
   }
 
   static createRecipe(url) {
+
     const user_id = 2
     const title = document.getElementById('title').value;
     const ingredient_blob = document.getElementById('ingredient_blob').value;
@@ -158,7 +197,7 @@ class Recipe {
     })
     .then(res => res.json())
     .then(json => {
-      let newRecipe = Recipe.addRecipe(json);
+      let newRecipe = new Recipe(json);
       newRecipe.displayRecipe();
     })
   }

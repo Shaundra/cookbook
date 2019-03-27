@@ -4,23 +4,29 @@
     - migrations
     - routes
 - Frontend
-  - Refactor OOP
+  - [x] Refactor OOP
   - Side Panel Navigation
     - View by Tags
     - View by Recipes
       - display all recipes in "side panel"
   - Show Panel
     - display single recipe
-    - create a new recipe (form)
+    - display tags on a recipe
+    - [x] create a new recipe
     - create a new tag (form)
       - (make a link from a recipe 'show' page)
+      - come back at CSS stage (display a text box and checkboxes)
     - create a comment (form)
     - update a recipe
     - update a tag
+- Refactor
+  - pull createElmt into a top-level module
+  - add spacing to tags list
+  - size images (on show recipe pages)
+  - make this responsive (use flex?)
 
 
-
-
+- (function creates a new scope using fat arrow inherits parent's scope)
 - import recipe
   - copy paste (mvp)
   - by url (stretch)
