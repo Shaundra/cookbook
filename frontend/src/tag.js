@@ -15,10 +15,10 @@ class Tag {
       a.href = "#"
     })
 
-    let showDiv = document.getElementById('show-list')
+    let showP = document.getElementById('show-panel')
     li.addEventListener('click', () => {
-      Helper.clearDisplay(showDiv);
-      let tagDiv = Helper.createElmt('div', showDiv, (div) => div.innerText = newTag.name)
+      Helper.clearDisplay(showP);
+      let tagDiv = Helper.createElmt('div', showP, (div) => div.innerText = newTag.name)
       newTag.showTagRecipes(tagDiv);
     })
   }
@@ -28,21 +28,15 @@ class Tag {
 
     showUl.innerText = this.name
 
-    let isColA = true;
     let newCols = Helper.createImgCols(showUl)
 
-    this.recipes.forEach((recipe) => {
-      if (isColA) {
-        Recipe.addRecipe(recipe, newCols[0])
-      } else {
-        Recipe.addRecipe(recipe, newCols[1])
-      }
-      isColA = !isColA;
+    this.recipes.forEach((recipe, index) => {
+      Recipe.addRecipe(recipe, newCols[index % 2])
     })
   }
 
-  displayTagOnRecipe(parent) {
-    let li = Helper.createElmt('li', parent, (li) => {
+  displayTagOnRecipe(tagUl) {
+    let li = Helper.createElmt('li', tagUl, (li) => {
       li.className = 'tagMenu'
       li.innerText = this.name
     })
@@ -55,5 +49,61 @@ class Tag {
       Tag.addTagToSubmenu(tag);
     }))
   }
+
+  static renderTagForm() {
+    let tagUl = document.getElementById('new-tag-ul')
+    let tagForm = Helper.createElmt('form', tagUl, (form) => form.id = 'tag-form')
+    tagForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      Tag.createTag(TAGS_URL);
+    })
+
+    Helper.createElmt('input', tagForm, (input) => {
+      let attrs = {type: 'text', id: 'new-tag-name', placeholder: 'Enter Tag Name'};
+      Helper.setAttrs(input, attrs);
+
+      Helper.createElmt('label', tagForm, (label) => {
+        label.innerText = 'Tag Name: '
+        label.setAttribute = attrs.id
+      })
+    })
+
+    Helper.createElmt('input', tagForm, (input) => {
+      input.type = 'submit'
+      input.value = 'Create Tag'
+      input.className = 'create-btn'
+    })
+
+    return tagForm
+  }
+
+  static addTagBtnToRecipe(parent) {
+    let addTagButton = Helper.createElmt('button', parent,
+    (btn) => btn.innerText = 'Add Tag')
+
+    addTagButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      Tag.renderTagForm();
+    })
+  }
+
+  static createTag(url) {
+    const newTag = document.getElementById('new-tag-name')
+    const newTagRecipeId = newTag.parentElement.parentElement.parentElement.firstElementChild.id
+    const newTagName = newTag.value
+
+    fetch(url, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name: newTagName, recipe_id: newTagRecipeId})
+    })
+      .then(res => res.json())
+      .then(json => {
+        let newRecipe = new Recipe(json);
+        // debugger;
+        newRecipe.displayRecipe();
+      })
+  }
+
 
 }

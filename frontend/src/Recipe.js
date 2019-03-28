@@ -32,12 +32,14 @@ class Recipe {
     // imgLab.addEventListener('click', () => {
     //   newRecipe.displayRecipe();
     // })
-    let imgLabel = Helper.createElmt('label', column, (label) => {
+    let imgCont = Helper.createElmt('div', column, (div) => div.className = 'img-container')
+    let imgLabel = Helper.createElmt('label', imgCont, (label) => {
       label.innerText = newRecipe.title;
+      label.className = 'img-label'
       label.setAttribute('for', newRecipe.id);
     })
 
-    let img = Helper.createElmt('img', column, (img) => {
+    let img = Helper.createElmt('img', imgCont, (img) => {
         img.src = newRecipe.image_url;
         img.id = newRecipe.id
       })
@@ -61,12 +63,14 @@ class Recipe {
 
     let tagUl = Helper.createElmt('ul', showP, (ul) => {
       ul.className = 'tagMenu'
+      ul.id = 'new-tag-ul'
     })
-
     this.tags.forEach((tag) => {
       let newTag = new Tag(tag);
       newTag.displayTagOnRecipe(tagUl)
     })
+
+    Tag.addTagBtnToRecipe(tagUl)
 
     Helper.createElmt('img', showP, (img) => {img.src = this.image_url})
     Helper.createElmt('p', showP, (p) => {p.innerText = this.cooking_time})
@@ -79,17 +83,17 @@ class Recipe {
       Comment.displayComment(comment, commentUl)
     })
 
-    let addTagButton = Helper.createElmt('button', document.querySelector('ul.tagMenu'),
-      (but) => but.innerText = 'Add Tag')
+    // let addTagButton = Helper.createElmt('button', document.querySelector('ul.tagMenu'),
+    //   (but) => but.innerText = 'Add Tag')
   }
 
   static renderRecipes(url) {
-    let showDiv = document.getElementById('show-list')
-    showDiv.classList.add('row')
+    let showP = document.getElementById('show-panel')
+    Helper.clearDisplay(showP)
 
     let isColA = true;
 
-    let newCols = Helper.createImgCols(showDiv)
+    let newCols = Helper.createImgCols(showP)
     fetch(url)
     .then(res => res.json())
     .then(json => json.forEach(function(recipe) {
@@ -201,5 +205,7 @@ class Recipe {
       newRecipe.displayRecipe();
     })
   }
+
+// search Recipe.where('ingredient_blob ilike ?', "%#{ search }%")
 
 }

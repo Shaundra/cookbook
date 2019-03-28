@@ -4,26 +4,6 @@ const TAGS_URL = 'http://localhost:3000/api/v1/tags'
 
 let showList = document.getElementById('show-list')
 
-// let listPanel = document.getElementById('list-panel')
-// let recipeButton = Helper.createElmt('button', listPanel,
-//   (but) => but.innerText = 'Recipes')
-
-// let recipeButton = document.getElementById('display-recipes')
-// recipeButton.addEventListener('click', () => {
-//   if (showUl.children) {
-//     Array.from(showUl.children).forEach((child) => child.remove()
-//   )};
-//   Recipe.renderRecipes(RECIPES_URL)
-// })
-
-// let tagUl = document.getElementById('tag-ul')
-// tagButton.addEventListener('click', () => {
-//   if (listUl.children) {
-//     Array.from(listUl.children).forEach((child) => child.remove()
-//   )};
-//   Tag.renderTags(TAGS_URL)
-// })
-
 Tag.renderTags(TAGS_URL)
 
 let showRecipe = document.getElementById('show-recipes')
@@ -31,7 +11,6 @@ showRecipe.addEventListener('click', () => {
   Helper.clearDisplay(showList);
   Recipe.renderRecipes(RECIPES_URL);
 })
-
 
 let createRecipe = document.getElementById('add-recipe')
 createRecipe.addEventListener('click', () => {
@@ -43,6 +22,15 @@ createRecipe.addEventListener('click', () => {
     Recipe.createRecipe(RECIPES_URL);
   })
 })
+
+// tagForm doesn't exist until
+// let tagForm = document.getElementById('tag-form')
+// // debugger;
+// tagForm.addEventListener('submit', (event) => {
+//   event.preventDefault();
+//   Tag.createTag(TAGS_URL);
+//   })
+
 
 // let showP = document.getElementById('show-panel')
 // let commentForm = document.getElementById('comment-form');
