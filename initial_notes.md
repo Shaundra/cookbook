@@ -24,6 +24,8 @@
   - add spacing to tags list
   - size images (on show recipe pages)
   - make this responsive (use flex?)
+  - fix tag links on display recipes page
+    - all fucked up (recipe comes from tag's recipe on the recipe)
 
 
 - (function creates a new scope using fat arrow inherits parent's scope)

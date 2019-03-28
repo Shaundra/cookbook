@@ -12,8 +12,11 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def update
-    byebug
+    @comment = Comment.create(content: comments_params[:content], recipe: @recipe)
+
+    render json: @recipe
   end
+
   private
 
   def recipe_params
@@ -21,7 +24,7 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def comments_params
-    params.require(:recipe).permit(:content)
+    params.permit(:content, :id)
   end
 
   def find_recipe

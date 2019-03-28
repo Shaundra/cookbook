@@ -5,7 +5,7 @@ class Comment {
     this.created_at = commentInfo.created_at
   }
 
-  static createComment(parent, url) {
+  static renderCommentForm(parent) {
     let commentUl = Helper.createElmt('ul', parent, (ul) => ul.innerText = 'Comments')
 
     let commentForm = Helper.createElmt('form', commentUl, (form) => {
@@ -20,15 +20,29 @@ class Comment {
       input.value = 'Create Comment';
       input.type = 'submit'
     })
-    const content = document.getElementById('content').value
 
-    // fetch(url, {
-    //   method: 'PATCH',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({content})
-    // })
-    // .then(res => res.json())
-    // .then(console.log)
+    commentForm.addEventListener('submit', (event) => {
+      console.log('comment form submitted')
+      event.preventDefault();
+      Comment.createComment();
+    })
+  }
+
+  static createComment() {
+    const content = document.getElementById('content')
+
+    let recipeId = document.getElementById('show-panel').firstElementChild.id
+    // debugger;
+    fetch(RECIPES_URL + `/${recipeId}`, {
+      method: 'PATCH',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({content: content.value})
+    })
+    .then(res => res.json())
+    .then(json => {
+      let newOldRecipe = new Recipe(json);
+      newOldRecipe.displayRecipe();
+    })
   }
 
   static displayComment(comment, parent) {

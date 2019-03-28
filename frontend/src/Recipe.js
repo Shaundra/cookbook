@@ -13,7 +13,7 @@ class Recipe {
 
   static addRecipe(recipeData, column) {
     let newRecipe = new Recipe(recipeData);
-
+    // debugger;
     // let li = Helper.createElmt('li', showUl, (li) => {
     //   li.innerText = newRecipe.title
     //   Helper.createElmt('img', li, (img) => {
@@ -65,6 +65,7 @@ class Recipe {
       ul.className = 'tagMenu'
       ul.id = 'new-tag-ul'
     })
+    // debugger;
     this.tags.forEach((tag) => {
       let newTag = new Tag(tag);
       newTag.displayTagOnRecipe(tagUl)
@@ -77,11 +78,12 @@ class Recipe {
     Helper.createElmt('p', showP, (p) => {p.innerText = this.ingredient_blob})
     Helper.createElmt('p', showP, (p) => {p.innerText = this.directions})
 
-    Comment.createComment(showP)
+    // Comment.createComment(showP)
     let commentUl = Helper.createElmt('ul', showP)
     this.comments.forEach((comment) => {
       Comment.displayComment(comment, commentUl)
     })
+    Comment.renderCommentForm(commentUl)
 
     // let addTagButton = Helper.createElmt('button', document.querySelector('ul.tagMenu'),
     //   (but) => but.innerText = 'Add Tag')

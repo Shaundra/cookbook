@@ -29,17 +29,29 @@ class Tag {
     showUl.innerText = this.name
 
     let newCols = Helper.createImgCols(showUl)
-
+    // debugger;
     this.recipes.forEach((recipe, index) => {
       Recipe.addRecipe(recipe, newCols[index % 2])
     })
   }
 
   displayTagOnRecipe(tagUl) {
+    // debugger;
     let li = Helper.createElmt('li', tagUl, (li) => {
       li.className = 'tagMenu'
-      li.innerText = this.name
+      Helper.createElmt('a', li, (a) => {
+        a.innerText = this.name
+        a.href = "#"
+      })
     })
+
+    // let showP = document.getElementById('show-panel')
+    // li.addEventListener('click', () => {
+    //   Helper.clearDisplay(showP);
+    //   let tagDiv = Helper.createElmt('div', showP, (div) => div.innerText = this.name)
+    //   this.showTagRecipes(tagDiv);
+    // })
+
   }
 
   static renderTags(url) {
