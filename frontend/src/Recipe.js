@@ -70,7 +70,7 @@ class Recipe {
       newTag.displayTagOnRecipe(tagUl)
     })
 
-    Tag.addTagBtnToRecipe(tagUl)
+    Tag.addTagBtnToRecipe(tagUl, this.tags)
 
     Helper.createElmt('img', showP, (img) => {img.src = this.image_url})
     Helper.createElmt('p', showP, (p) => {p.innerText = this.cooking_time})
