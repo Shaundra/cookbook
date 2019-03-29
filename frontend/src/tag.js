@@ -71,7 +71,6 @@ class Tag {
         json.forEach((tag) => userTags.push(tag.name))
 
         userTags.forEach((tag) => {
-          // debugger;
           let recipeTagNames = [];
           recipeTags.forEach((tag) => recipeTagNames.push(tag.name));
 
@@ -104,7 +103,7 @@ class Tag {
 
       Helper.createElmt('label', tagForm, (label) => {
         label.innerText = 'Tag Name: '
-        label.setAttribute = attrs.id
+        label.setAttribute('id', attrs.id)
       })
 
 

@@ -3,6 +3,7 @@ const TAGS_URL = 'http://localhost:3000/api/v1/tags'
 
 
 let showList = document.getElementById('show-list')
+let showP = document.getElementById('show-panel')
 
 Tag.renderTags(TAGS_URL)
 
@@ -23,22 +24,19 @@ createRecipe.addEventListener('click', () => {
   })
 })
 
-// tagForm doesn't exist until
-// let tagForm = document.getElementById('tag-form')
-// // debugger;
-// tagForm.addEventListener('submit', (event) => {
-//   event.preventDefault();
-//   Tag.createTag(TAGS_URL);
-//   })
+let searchRecipeBtn = document.getElementById('search-recipes');
+searchRecipeBtn.addEventListener('click', () => {
+  Helper.clearDisplay(showP);
+  Recipe.renderSearchForm(showP);
 
+  let searchForm = document.getElementById('search-form')
+  searchForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    console.log('Searching')
+    Recipe.searchRecipes();
+  })
+})
 
-// let showP = document.getElementById('show-panel')
-// let commentForm = document.getElementById('comment-form');
-// commentForm.addEventListener('submit', (event) => {
-//   event.preventDefault();
-//   let recipeId = commentForm.parentElement.parentElement.firstChild.id;
-//   Comment.createComment(showP, RECIPES_URL + `/${recipeId}`);
-// })
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
 function openNav() {

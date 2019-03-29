@@ -5,4 +5,8 @@ class Recipe < ApplicationRecord
   has_many :comments
 
   validates :title, presence: true
+
+  def self.search_recipe_ingredients(search_term)
+    Recipe.where('ingredient_blob ilike ?', "%#{search_term}%")
+  end
 end

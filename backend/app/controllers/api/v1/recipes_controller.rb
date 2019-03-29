@@ -17,7 +17,16 @@ class Api::V1::RecipesController < ApplicationController
     render json: @recipe
   end
 
+  def search
+    @recipes = Recipe.search_recipe_ingredients(search_params[:search_term])
+
+    render json: @recipes
+  end
   private
+
+  def search_params
+    params.permit(:search_term)
+  end
 
   def recipe_params
     params.require(:recipe).permit(:user_id, :title, :ingredient_blob, :directions, :cooking_time, :image_url, :source_url)

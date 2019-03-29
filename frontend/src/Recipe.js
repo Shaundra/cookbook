@@ -13,25 +13,7 @@ class Recipe {
 
   static addRecipe(recipeData, column) {
     let newRecipe = new Recipe(recipeData);
-    // debugger;
-    // let li = Helper.createElmt('li', showUl, (li) => {
-    //   li.innerText = newRecipe.title
-    //   Helper.createElmt('img', li, (img) => {
-    //     img.src = newRecipe.image_url;
-    //   })
-    // })
 
-    // let imgLab = Helper.createElmt('label', showDiv, (label) => {
-    //   label.innerText = newRecipe.title
-    //   label.setAttribute('for', newRecipe.id)
-    //   Helper.createElmt('img', label, (img) => {
-    //     img.src = newRecipe.image_url;
-    //     img.id = newRecipe.id
-    //   })
-    // })
-    // imgLab.addEventListener('click', () => {
-    //   newRecipe.displayRecipe();
-    // })
     let imgCont = Helper.createElmt('div', column, (div) => div.className = 'img-container')
     let imgLabel = Helper.createElmt('label', imgCont, (label) => {
       label.innerText = newRecipe.title;
@@ -85,8 +67,6 @@ class Recipe {
     })
     Comment.renderCommentForm(commentUl)
 
-    // let addTagButton = Helper.createElmt('button', document.querySelector('ul.tagMenu'),
-    //   (but) => but.innerText = 'Add Tag')
   }
 
   static renderRecipes(url) {
@@ -125,7 +105,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Title: '
-        label.setAttribute = attrs.id
+        label.setAttribute('id', attrs.id)
       })
     })
 
@@ -135,7 +115,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Ingredients: '
-        label.setAttribute = attrs.id
+        label.setAttribute('id', attrs.id)
       })
     })
 
@@ -145,7 +125,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Directions: '
-        label.setAttribute = attrs.id
+        label.setAttribute('id', attrs.id)
       })
     })
 
@@ -155,7 +135,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Time: '
-        label.setAttribute = attrs.id
+        label.setAttribute('id', attrs.id)
       })
     })
 
@@ -165,7 +145,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Source:'
-        label.setAttribute = attrs.id
+        label.setAttribute('id', attrs.id)
       })
     })
 
@@ -175,7 +155,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Image:'
-        label.setAttribute = attrs.id
+        label.setAttribute('id', attrs.id)
       })
     })
 
@@ -208,6 +188,48 @@ class Recipe {
     })
   }
 
+  static renderSearchForm(parent) {
+    let searchForm = Helper.createElmt('form', parent, (form) => {
+      form.id = 'search-form'
+    })
+
+    Helper.createElmt('label', searchForm, (label) => {
+      label.innerText = 'Search Recipes: '
+      label.setAttribute('for', 'search-term')
+    })
+
+    Helper.createElmt('input', searchForm, (input) => {
+      let attrs = {type: 'text', id: 'search-term', placeholder: 'Enter Search Term'};
+      Helper.setAttrs(input, attrs);
+    })
+
+    Helper.createElmt('input', searchForm, (input) => {
+      let attrs = {type: 'submit', value: 'Search Recipes'};
+      Helper.setAttrs(input, attrs);
+      input.className = 'create-btn';
+    })
+  }
+
+  static searchRecipes() {
+    let search_term = document.getElementById('search-term').value
+
+    fetch(RECIPES_URL + `/search`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({search_term})
+    })
+      .then(res => res.json())
+      .then(json => {
+        let showP = document.getElementById('show-panel')
+
+        let newCols = Helper.createImgCols(showP)
+
+        json.forEach((recipe, index) => {
+          Recipe.addRecipe(recipe, newCols[index % 2])
+        })
+      })
+
+  }
 // search Recipe.where('ingredient_blob ilike ?', "%#{ search }%")
 
 }
