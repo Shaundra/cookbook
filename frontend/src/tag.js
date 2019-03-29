@@ -45,13 +45,6 @@ class Tag {
       })
     })
 
-    // let showP = document.getElementById('show-panel')
-    // li.addEventListener('click', () => {
-    //   Helper.clearDisplay(showP);
-    //   let tagDiv = Helper.createElmt('div', showP, (div) => div.innerText = this.name)
-    //   this.showTagRecipes(tagDiv);
-    // })
-
   }
 
   static renderTags(url) {

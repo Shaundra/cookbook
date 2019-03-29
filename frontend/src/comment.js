@@ -32,7 +32,7 @@ class Comment {
     const content = document.getElementById('content')
 
     let recipeId = document.getElementById('show-panel').firstElementChild.id
-    // debugger;
+
     fetch(RECIPES_URL + `/${recipeId}`, {
       method: 'PATCH',
       headers: {'Content-Type': 'application/json'},

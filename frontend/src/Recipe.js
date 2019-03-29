@@ -208,6 +208,8 @@ class Recipe {
       Helper.setAttrs(input, attrs);
       input.className = 'create-btn';
     })
+
+    Helper.createElmt('div', searchForm, (div) => div.id = 'search-results')
   }
 
   static searchRecipes() {
@@ -220,9 +222,9 @@ class Recipe {
     })
       .then(res => res.json())
       .then(json => {
-        let showP = document.getElementById('show-panel')
-
-        let newCols = Helper.createImgCols(showP)
+        let searchResults = document.getElementById('search-results');
+        Helper.clearDisplay(searchResults);
+        let newCols = Helper.createImgCols(searchResults);
 
         json.forEach((recipe, index) => {
           Recipe.addRecipe(recipe, newCols[index % 2])
@@ -230,6 +232,4 @@ class Recipe {
       })
 
   }
-// search Recipe.where('ingredient_blob ilike ?', "%#{ search }%")
-
 }
