@@ -7,6 +7,8 @@ class Recipe < ApplicationRecord
   validates :title, presence: true
 
   def self.search_recipe_ingredients(search_term)
-    Recipe.where('ingredient_blob ilike ?', "%#{search_term}%")
+    results = Recipe.where('ingredient_blob ilike ?', "%#{search_term}%")
+    # byebug
+    results.empty? ?  ["No Recipes Found"] : results
   end
 end

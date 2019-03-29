@@ -12,14 +12,19 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def update
-    @comment = Comment.create(content: comments_params[:content], recipe: @recipe)
+    # byebug;
+    if comments_params.to_h.size > 1
+      @comment = Comment.create(content: comments_params[:content], recipe: @recipe)
+    else
+      @recipe.update(recipe_params)
+    end
 
     render json: @recipe
   end
 
   def search
     @recipes = Recipe.search_recipe_ingredients(search_params[:search_term])
-
+    # byebug
     render json: @recipes
   end
   private

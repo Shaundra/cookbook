@@ -1,5 +1,6 @@
 body {
 	display: grid;
+  /* display: flex; */
   font-family: "Bellefair", sans-serif;
   background-image: url('./assets/background.jpg');
   /* background-image: url('./assets/paper_crease_creased_texture_crumple_crumpled_wrinkled_waste_paper-946415.jpg'); */
@@ -125,6 +126,7 @@ hr {
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  font-size: 14px;
 }
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
@@ -167,63 +169,68 @@ ul#new-tag-ul li  {
 
 }
 
+#tag-form {
+  margin: 30px 0 50px 0;
+}
+
+/* Tag Form Checkboxes */
 /* Customize the label (the container) */
-/* .checkbox-container {
-  display: block;
+.checkbox-container {
+  display: inline;
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-} */
+}
 
 /* Hide the browser's default checkbox */
-/* .checkbox-container input {
+.checkbox-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
-} */
+}
 
 /* Create a custom checkbox */
-/* .checkmark {
+.checkmark {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 5px;
   height: 25px;
   width: 25px;
-  background-color: #eee;
-} */
+  background-color: gray;
+}
 
 /* On mouse-over, add a grey background color */
-/* .checkbox-container:hover input ~ .checkmark {
+.checkbox-container:hover input ~ .checkmark {
   background-color: #ccc;
-} */
+}
 
 /* When the checkbox is checked, add a blue background */
-/* .checkbox-container input:checked ~ .checkmark {
+.checkbox-container input:checked ~ .checkmark {
   background-color: #2196F3;
-} */
+}
 
 /* Create the checkmark/indicator (hidden when not checked) */
-/* .checkmark:after {
+.checkmark:after {
   content: "";
   position: absolute;
   display: none;
-} */
+}
 
 /* Show the checkmark when checked */
-/* .checkbox-container input:checked ~ .checkmark:after {
+.checkbox-container input:checked ~ .checkmark:after {
   display: block;
-} */
+}
 
 /* Style the checkmark/indicator */
-/* .checkbox-container .checkmark:after {
+.checkbox-container .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
@@ -233,4 +240,10 @@ ul#new-tag-ul li  {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-} */
+}
+
+.editing_recipe {
+  border-style: inset; /* mad 90s. shrug. */
+  background-color: white;
+  padding: 8px;
+}

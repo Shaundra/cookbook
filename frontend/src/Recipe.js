@@ -38,6 +38,7 @@ class Recipe {
     Helper.clearDisplay(showP)
 
     let h3 = Helper.createElmt('h3', showP, (h3) => h3.setAttribute('id', this.id))
+    h3.className = 'recipe-title'
     Helper.createElmt('a', h3, (a) => {
       a.innerText = this.title
       a.href = this.source_url
@@ -47,7 +48,7 @@ class Recipe {
       ul.className = 'tagMenu'
       ul.id = 'new-tag-ul'
     })
-    // debugger;
+
     this.tags.forEach((tag) => {
       let newTag = new Tag(tag);
       newTag.displayTagOnRecipe(tagUl)
@@ -55,18 +56,75 @@ class Recipe {
 
     Tag.addTagBtnToRecipe(tagUl, this.tags)
 
-    Helper.createElmt('img', showP, (img) => {img.src = this.image_url})
-    Helper.createElmt('p', showP, (p) => {p.innerText = this.cooking_time})
-    Helper.createElmt('p', showP, (p) => {p.innerText = this.ingredient_blob})
-    Helper.createElmt('p', showP, (p) => {p.innerText = this.directions})
+    Helper.createElmt('img', showP, (img) => {
+      img.src = this.image_url
+      img.id = 'recipe-img'
+    })
 
-    // Comment.createComment(showP)
+    Recipe.editRecipeContent(showP)
+
+    Helper.createElmt('p', showP, (p) => {
+      p.innerText = this.cooking_time;
+      p.id = 'cooking_time';
+    })
+    Helper.createElmt('p', showP, (p) => {
+      p.innerText = this.ingredient_blob;
+      p.id = 'ingredient_blob';
+    })
+    Helper.createElmt('p', showP, (p) => {
+      p.innerText = this.directions;
+      p.id = 'directions'
+    })
+
     let commentUl = Helper.createElmt('ul', showP)
     this.comments.forEach((comment) => {
       Comment.displayComment(comment, commentUl)
     })
     Comment.renderCommentForm(commentUl)
 
+
+  }
+
+  static editRecipeContent(parent) {
+    let editButton = Helper.createElmt('button', parent, (btn) => {
+      btn.innerText = 'Edit Recipe Content';
+      btn.id = 'edit-recipe-button';
+    })
+
+    editButton.addEventListener('click', () => {
+      let recipePs = document.querySelectorAll('#show-panel p');
+
+      if (editButton.innerText == 'Edit Recipe Content') {
+        editButton.innerText = 'Save Recipe Content';
+        recipePs.forEach((p) => {
+          p.contentEditable = true;
+          p.classList.toggle('editing_recipe');
+        })
+      } else {
+        Recipe.saveRecipeContent(recipePs, editButton)
+      }
+    })
+  }
+
+  static saveRecipeContent(recipe_p_tags, editButton) {
+    let recipeId = document.querySelector('.recipe-title').id;
+    let newContent = {'user_id': 2, 'id': recipeId};
+    newContent['id'] = recipeId;
+    editButton.innerText = 'Edit Recipe Content';
+
+    recipe_p_tags.forEach((p) => {
+      newContent[p.id] = p.innerText;
+      p.classList.toggle('editing_recipe');
+      p.contentEditable = false;
+    })
+
+    fetch(RECIPES_URL + `/${recipeId}`, {
+      method: 'PATCH',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(newContent)
+    })
+      .then(res => res.json())
+      .then(console.log)
   }
 
   static renderRecipes(url) {
@@ -222,13 +280,19 @@ class Recipe {
     })
       .then(res => res.json())
       .then(json => {
+        console.log(json);
         let searchResults = document.getElementById('search-results');
         Helper.clearDisplay(searchResults);
-        let newCols = Helper.createImgCols(searchResults);
+        // debugger;
+        if (json[0] == 'No Recipes Found') {
+          Helper.createElmt('p', searchResults, (p) => p.innerText = json[0])
+        } else {
+          let newCols = Helper.createImgCols(searchResults);
 
-        json.forEach((recipe, index) => {
-          Recipe.addRecipe(recipe, newCols[index % 2])
-        })
+          json.forEach((recipe, index) => {
+            Recipe.addRecipe(recipe, newCols[index % 2])
+          })
+        }
       })
 
   }

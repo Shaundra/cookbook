@@ -76,8 +76,8 @@ class Tag {
               input.className = 'tag-checkboxes';
               input.setAttribute('name', tag);
               if (recipeTagNames.includes(tag)) {input.setAttribute('checked', 'checked')}
-              Helper.createElmt('span', label, (span) => span.className = 'checkmark')
             })
+            Helper.createElmt('span', label, (span) => span.className = 'checkmark')
           })
         })
       })
@@ -121,7 +121,12 @@ class Tag {
 
     addTagButton.addEventListener('click', (event) => {
       event.preventDefault();
+      let tagForm = document.getElementById('tag-form');
+      if (tagForm) {
+        tagForm.remove();
+      } else {
       Tag.renderTagForm(recipeTags);
+      }
     })
   }
 
