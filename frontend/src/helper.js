@@ -25,5 +25,15 @@ const Helper = {
     })
 
    return [colA, colB]
-  }
+ },
+ getFormattedDate: (date_str) => {
+     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+     let date = new Date(Date.parse(date_str));
+
+     let year = date.getFullYear();
+     let month = months[date.getMonth()];
+     let day = date.getDate().toString().padStart(2, '0');
+     return `${day} ${month} ${year}`;
+ }
 }

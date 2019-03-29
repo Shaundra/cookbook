@@ -2,6 +2,7 @@ body {
 	display: grid;
   /* display: flex; */
   font-family: "Bellefair", sans-serif;
+  /* font-family: ostrichSansLight; */
   background-image: url('./assets/background.jpg');
   /* background-image: url('./assets/paper_crease_creased_texture_crumple_crumpled_wrinkled_waste_paper-946415.jpg'); */
 }
@@ -24,7 +25,7 @@ body {
 .sidenav a, .dropdown-btn, h3 {
   padding: 2px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 38px;
   color: #818181;
   display: block;
   background: none;
@@ -34,6 +35,12 @@ body {
   cursor: pointer;
   outline: none;
   border: none;
+  font-family: ostrichSansMedium;
+}
+
+.recipe-title, .tag-title {
+  font-size: 58px;
+  font-family: ostrichSansMedium;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -118,7 +125,7 @@ hr {
 }
 
 .create-btn {
-  background-color: #4CAF50;
+  background-color: #818181;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -128,6 +135,19 @@ hr {
   opacity: 0.9;
   font-size: 14px;
 }
+
+.display-recipe-page-btn {
+  /* background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9; */
+  font-size: 14px;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -246,4 +266,77 @@ ul#new-tag-ul li  {
   border-style: inset; /* mad 90s. shrug. */
   background-color: white;
   padding: 8px;
+}
+
+#comment-container li {
+    display: block;
+    background: white;
+    padding: 20px;
+    box-shadow: 6px 6px 5px 0px rgba(189,183,189,1);
+    margin: 16px;
+    position: relative;
+    border-left-color: lightgray;
+    border-left-style: outset;
+}
+
+#comment-container p {
+    position: relative;
+    bottom: 10px;
+}
+
+
+#comment-date {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding-left: 30px;
+    padding-bottom: 4px;
+    color: lightgray;
+}
+
+#comment-rating  {
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    padding-left: 30px;
+    padding-bottom: 4px;
+    color: lightgray;
+}
+
+#recipe-notes-ul {
+  font-size: 22px;
+  padding: 0;
+}
+
+#comment-form {
+  padding: 0 20px;
+  display: block;
+}
+
+#content {
+  font-size: 14px;
+}
+
+#recipe-form input, #recipe-form textarea, #search-form input {
+  font-size: 14px;
+}
+
+@font-face {
+  font-family: ostrichSansMedium;
+  src: url('./fonts/ostrichsans-medium.otf')
+}
+
+@font-face {
+  font-family: ostrichSansLight;
+  src: url('./fonts/ostrichsans-light.otf')
+}
+
+h3 > a:link, h3 > a:visited {
+  color: #696969;
+  text-decoration: none;
+}
+
+h3 > a:hover {
+  text-decoration: underline;
+  color:#ffcc00;
 }

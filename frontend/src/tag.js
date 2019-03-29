@@ -18,21 +18,31 @@ class Tag {
     let showP = document.getElementById('show-panel')
     li.addEventListener('click', () => {
       Helper.clearDisplay(showP);
-      let tagDiv = Helper.createElmt('div', showP, (div) => div.innerText = newTag.name)
-      newTag.showTagRecipes(tagDiv);
+      newTag.showTagRecipes(showP);
     })
   }
 
   showTagRecipes(showUl) {
     Array.from(showUl.children).forEach((child) => child.remove())
 
-    showUl.innerText = this.name
+    Helper.createElmt('p', showUl, (p) => {
+      p.innerText = this.name;
+      p.className = 'tag-title';
+    })
 
     let newCols = Helper.createImgCols(showUl)
     // debugger;
-    this.recipes.forEach((recipe, index) => {
-      Recipe.addRecipe(recipe, newCols[index % 2])
-    })
+    // this.recipes.forEach((recipe, index) => {
+    //   Recipe.addRecipe(recipe, newCols[index % 2])
+    // })
+
+    fetch(`${TAGS_URL}/${this.id}`)
+      .then(res => res.json())
+      .then(json => {
+        json.recipes.forEach((recipe, index) => {
+          Recipe.addRecipe(recipe, newCols[index % 2])
+        })
+      })
   }
 
   displayTagOnRecipe(tagUl) {
@@ -96,7 +106,7 @@ class Tag {
 
       Helper.createElmt('label', tagForm, (label) => {
         label.innerText = 'Tag Name: '
-        label.setAttribute('id', attrs.id)
+        label.setAttribute('for', attrs.id)
       })
 
 
@@ -117,7 +127,10 @@ class Tag {
 
   static addTagBtnToRecipe(parent, recipeTags) {
     let addTagButton = Helper.createElmt('button', parent,
-    (btn) => btn.innerText = 'Edit Tags')
+    (btn) => {
+      btn.innerText = 'Edit Tags';
+      btn.className = 'display-recipe-page-btn';
+  })
 
     addTagButton.addEventListener('click', (event) => {
       event.preventDefault();
@@ -133,7 +146,7 @@ class Tag {
   static createTag(url) {
     const newTag = document.getElementById('new-tag-name');
     const newTagRecipeId = newTag.parentElement.parentElement.parentElement.firstElementChild.id;
-
+    // debugger;
     const newTagName = newTag.value;
     const tagCheckboxes = document.getElementsByClassName('tag-checkboxes');
     let allNewTags = Array.from(tagCheckboxes).filter(tag => tag.checked == true).map(tag => tag.name);

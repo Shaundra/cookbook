@@ -7,6 +7,7 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
+    byebug;
     @recipe = Recipe.find_or_create_by(recipe_params)
     render json: @recipe
   end

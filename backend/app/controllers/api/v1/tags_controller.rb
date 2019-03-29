@@ -1,4 +1,6 @@
 class Api::V1::TagsController < ApplicationController
+  before_action :find_tag, only: [:show]
+
   def index
     @tags = Tag.all
     render json: @tags
@@ -16,7 +18,15 @@ class Api::V1::TagsController < ApplicationController
     render json: @recipe
   end
 
+  def show
+    render json: @tag
+  end
+
   private
+
+  def find_tag
+    @tag = Tag.find(params[:id])
+  end
 
   def tag_params
     params.permit(:name, :recipe_id, names: [])

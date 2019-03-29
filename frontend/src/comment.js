@@ -6,19 +6,23 @@ class Comment {
   }
 
   static renderCommentForm(parent) {
-    let commentUl = Helper.createElmt('ul', parent, (ul) => ul.innerText = 'Comments')
+    let commentUl = Helper.createElmt('ul', parent, (ul) => {
+      ul.innerText = 'Recipe Notes'
+      ul.id = 'recipe-notes-ul'
+    })
 
     let commentForm = Helper.createElmt('form', commentUl, (form) => {
       form.id = 'comment-form'
     })
 
     Helper.createElmt('textarea', commentForm, (input) => {
-      let attrs = {id: 'content', placeholder: 'Enter comment...'};
+      let attrs = {id: 'content', placeholder: 'Enter recipe notes...'};
       Helper.setAttrs(input, attrs);
     })
     Helper.createElmt('input', commentForm, (input) => {
-      input.value = 'Create Comment';
+      input.value = 'Create Note';
       input.type = 'submit'
+      input.className = 'display-recipe-page-btn'
     })
 
     commentForm.addEventListener('submit', (event) => {
@@ -47,7 +51,22 @@ class Comment {
 
   static displayComment(comment, parent) {
     Helper.createElmt('li', parent, (li) => {
-      li.innerText = `${comment.created_at}  ${(comment.rating > -1) ? "-- " + comment.rating : "" } \n ${comment.content}`
+
+      // li.textContent = `${comment.created_at} \n ${(comment.rating > -1) ? "-- " + comment.rating : "" } \n ${comment.content}`
+
+      Helper.createElmt('p', li, (p) => {
+        p.innerText = comment.content
+      })
+      Helper.createElmt('span', li, (span) => {
+        span.innerText = Helper.getFormattedDate(comment.created_at)
+        span.id = 'comment-date'
+      })
+      Helper.createElmt('span', li, (span) => {
+        if (comment.rating > -1 && comment.rating !== null) {
+          span.innerText = `Rating: ${comment.rating}`
+        }
+        span.id = 'comment-rating'
+      })
     })
   }
 }

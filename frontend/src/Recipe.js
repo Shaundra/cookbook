@@ -76,18 +76,21 @@ class Recipe {
       p.id = 'directions'
     })
 
-    let commentUl = Helper.createElmt('ul', showP)
-    this.comments.forEach((comment) => {
-      Comment.displayComment(comment, commentUl)
+    let commentDiv= Helper.createElmt('div', showP, (div) => {
+      div.id = 'comment-container'
     })
-    Comment.renderCommentForm(commentUl)
 
+    Comment.renderCommentForm(commentDiv)
 
+    this.comments.forEach((comment) => {
+      Comment.displayComment(comment, commentDiv)
+    })
   }
 
   static editRecipeContent(parent) {
     let editButton = Helper.createElmt('button', parent, (btn) => {
       btn.innerText = 'Edit Recipe Content';
+      btn.className = 'display-recipe-page-btn';
       btn.id = 'edit-recipe-button';
     })
 
@@ -163,7 +166,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Title: '
-        label.setAttribute('id', attrs.id)
+        label.setAttribute('for', attrs.id)
       })
     })
 
@@ -173,7 +176,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Ingredients: '
-        label.setAttribute('id', attrs.id)
+        label.setAttribute('for', attrs.id)
       })
     })
 
@@ -183,7 +186,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Directions: '
-        label.setAttribute('id', attrs.id)
+        label.setAttribute('for', attrs.id)
       })
     })
 
@@ -193,7 +196,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Time: '
-        label.setAttribute('id', attrs.id)
+        label.setAttribute('for', attrs.id)
       })
     })
 
@@ -203,7 +206,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Source:'
-        label.setAttribute('id', attrs.id)
+        label.setAttribute('for', attrs.id)
       })
     })
 
@@ -213,7 +216,7 @@ class Recipe {
 
       Helper.createElmt('label', newForm, (label) => {
         label.innerText = 'Recipe Image:'
-        label.setAttribute('id', attrs.id)
+        label.setAttribute('for', attrs.id)
       })
     })
 
