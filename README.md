@@ -1,24 +1,5 @@
-# README
+## Cookbook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Cookbook is a single page application for recipe organization and annotation.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Built with Rails 5, JavaScript, and vanilla CSS.
