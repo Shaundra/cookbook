@@ -21,3 +21,26 @@
 
 # Ignore master key for decrypting credentials and more.
 /backend/config/master.key
+
+# react app files
+# dependencies
+/cookbook-client/node_modules
+/cookbook-client/.pnp
+/cookbook-client/.pnp.js
+
+# testing
+/cookbook-client//coverage
+
+# production
+/cookbook-client//build
+
+# misc
+/cookbook-client/.DS_Store
+/cookbook-client/.env.local
+/cookbook-client/.env.development.local
+/cookbook-client/.env.test.local
+/cookbook-client/.env.production.local
+
+/cookbook-client/npm-debug.log*
+/cookbook-client/yarn-debug.log*
+/cookbook-client/yarn-error.log*
